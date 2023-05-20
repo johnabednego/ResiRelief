@@ -11,3 +11,153 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  font-family: sans-serif;
+  padding: 10px 30px;
+}
+
+.App > div {
+  color: #3498db;
+  text-align: center;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #003366;
+  font-size: 30px
+}
+.slick-slide{
+  justify-content: center !important;
+  display: flex !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 281px;
+  height: 381px;
+}
+
+.swiper-slide div {
+  display: block;
+ width: 100%;
+ 
+}
+
+.inputShadow:focus {
+  border-color: rgb(83, 146, 249);
+  outline: 0px;
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgb(83, 146, 249) 0px 0px 6px;
+}
+.signinButton{
+  background-color: rgb(83, 146, 249);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 1px;
+  transition: all 0.15s ease-in-out 0s;
+}
+.closeButton{
+  background-color: red;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 1px;
+  transition: all 0.15s ease-in-out 0s;
+}
+.createAaccount{
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgb(83, 146, 249);
+}
+.accountButton{
+  position: relative;
+  padding: 12px;
+  border-radius: 4px;
+  user-select: none;
+  border: 1px solid rgb(83, 146, 249);
+  color: rgb(83, 146, 249);
+  background-color: rgb(255, 255, 255);
+  transition: all 0.15s ease-in-out 0s;
+  width: 100%;
+}
+.accountButton:hover {
+  background-color: rgb(135, 179, 251);
+  border-color: rgb(135, 179, 251);
+  color: rgb(255, 255, 255);
+  transition: all 0.15s ease-in-out 0s;
+  cursor: pointer;
+}
+.svgFill * {
+  fill: rgb(83, 146, 249);
+}
+.countryCode:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 1px;
+  border-color: rgb(83, 146, 249);
+}
+.input{
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+.input:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #fad6d5;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(235,104,100,.25);
+  box-shadow: 0 0 0 0.2rem rgba(235,104,100,.25);
+}
+
+
+
+@media (min-width:640px){
+  #mobile-menu{
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .slick-next {
+    right: -2px;
+  }
+  .slick-prev {
+    left: 3px;
+}
+}
+
+@media (max-width: 639px) {
+  .slick-next {
+    right: -10px;
+  }
+  .slick-prev {
+    left: -3px;
+    z-index: 100;
+}
+}
+@media (max-width:344px){
+  .margin{
+    margin-left: 0px;
+  }
+}
+@media (max-width:416px){
+  .signList{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    align-items: center;
+  }
+  .sign{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+  }
+  .links{
+    margin-top: 20px;
+  }
+  .contactTittle{
+    margin-top: 140px;
+  }
+}
