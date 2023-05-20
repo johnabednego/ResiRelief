@@ -1,20 +1,24 @@
-import React,{useEffect} from 'react';
-import { useSelector } from 'react-redux'
-import Home from './pages/Home/Home';
-import Aos from 'aos'
-import "aos/dist/aos.css"
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact'
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 function App() {
-  const pageNumber = useSelector((state) => state.page.value)
   useEffect(() => {
-    Aos.init()
-  })
+    Aos.init();
+  });
   return (
-   <div>
-    {/* {pageNumber===1?<About/>:<Home/>} */}
-    <Contact/>
-   </div>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home/>} />
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
