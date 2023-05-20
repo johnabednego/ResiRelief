@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import contact from './assets/contact-1.jpg'
-import map from './assets/map-pins.png'
 import Nav from '../Nav/Nav'
 import SignInModal from '../../components/SignIn/SignInModal'
 import SignUpModal from '../../components/SignUp/SignUpModal'
@@ -10,12 +9,12 @@ const ContactHero = () => {
     const signUpModal = useSelector((state) => state.signUpModal.value)
     return (
         <div className=' overflow-hidden'>
-            <div className=' w-screen h-screen bg-contact bg-cover'>
+            <div className=' w-screen h-screen bg-contact bg-cover bg-top'>
                 <div data-aos='zoom-in' data-aos-duration="3000" className=' xl:px-12 pb-1 fixed w-full z-10  '>
                     <Nav />
                 </div>
                 <div className='pt-28 lg:pt-24 justify-center items-center flex flex-col '>
-                    <div className=' contactTittle mt-24 sm:mt-16 flex flex-col bg-white px-2 sm:rounded-tl-3xl sm:rounded-tr-3xl shadow-xl shadow-[#413f3f]'>
+                    <div className=' animate-bounce sm:mt-16 flex flex-col bg-white px-2 sm:rounded-tl-3xl sm:rounded-tr-3xl shadow-xl shadow-[#413f3f]'>
                         <h1 className=' text-[30px] text-center sm:text-left sm:text-[40px] font-bold '>We Would Love to Hear From You</h1>
                         {/* <h1 className='text-center sm:text-left text-[12px] md:text-[16px] font-normal' ></h1>
                          */}
@@ -32,8 +31,6 @@ const ContactHero = () => {
                         </div>
 
                     </div>
-
-                    <img src={map} alt="map-pins" />
                 </div>
             </div>
             <div className=' mb-8 justify-center items-center  flex flex-col  w-full h-full bg-white'>

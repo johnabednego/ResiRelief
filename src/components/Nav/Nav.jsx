@@ -1,13 +1,18 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { home, about_us, contact_us } from '../../features/page/pageSlice'
 import { SignInTrue } from '../../features/nav/signInSlice'
 import { SignUpTrue } from '../../features/nav/signUpSlice'
 
 const Nav = () => {
+
+    const url = window.location.pathname
+    let pageNumber = 0;
+
+
     const navigate = useNavigate()
-    const pageNumber = useSelector((state) => state.page.value)
+    // const pageNumber = useSelector((state) => state.page.value)
     const dispatch = useDispatch()
  
 
@@ -15,6 +20,19 @@ const Nav = () => {
         const menu = document.getElementById("mobile-menu");
         menu.classList.toggle("hidden");
     }
+        switch(url){
+            case "/":
+                pageNumber=0
+                break
+            case "/about":
+                pageNumber=1
+                break
+            case "/contact":
+                pageNumber=2
+                break
+            default:
+                break
+        }
     return (
         <div className='bg-[#F5F5F5] lg:rounded-bl-full lg:rounded-br-full'>
 
@@ -30,12 +48,12 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className='mt-3 lg:mt-0  w-full flex-1 hidden sm:flex justify-around'>
-                    {pageNumber === 0 ?  <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Home</h1>: <h1 onClick={() => dispatch(home()) && navigate("/") } className='cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  '>Home</h1>}
+                    {pageNumber === 0 ?  <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Home</h1>: <a href='/' onClick={() => dispatch(home()) } className='cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  '>Home</a>}
                     {/* {pageNumber === 1 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Hotels</h1> : <h1 className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4  hover:border-[#d1e0e0] ' onClick={() => dispatch(hotels())} >Hotels</h1>}
                 {pageNumber === 2 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Apartments</h1> : <h1 className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(apartments())} >Apartments</h1>}
                 {pageNumber === 3 ? <h1 className=' border-b-4 border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Hostels</h1> : <h1 className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(hostels())} >Hostels</h1>} */}
-                    {pageNumber === 1 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>About Us</h1> : <h1 className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(about_us()) && navigate("/about")} >About Us</h1>}
-                    {pageNumber === 2 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Contact Us</h1> : <h1 className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(contact_us()) && navigate("/contact")} >Contact Us</h1>}
+                    {pageNumber === 1 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>About Us</h1> : <a href='/about' className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(about_us())} >About Us</a>}
+                    {pageNumber === 2 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Contact Us</h1> : <a href='/contact' className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(contact_us())} >Contact Us</a>}
                     <h1 className=' shadow-lg cursor-pointer font-semibold text-primary px-4 bg-white rounded-tl-full rounded-br-full border-[1px] outline-secondary outline-double border-secondar hover:scale-[1.2]  hover:outline-none '  >List your property</h1>
                 </div>
                 <div className="sm:hidden flex items-center">
