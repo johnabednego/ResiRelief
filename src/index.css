@@ -111,7 +111,9 @@ code {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(235,104,100,.25);
   box-shadow: 0 0 0 0.2rem rgba(235,104,100,.25);
 }
-
+.listType{
+  box-shadow: 0 2px 8px 3px rgba(0,0,0,.2);
+}
 
 
 @media (min-width:640px){
@@ -141,6 +143,20 @@ code {
   .margin{
     margin-left: 0px;
   }
+  .listType{
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+  .listTittle{
+    max-width: 140px;
+    margin-left: 2px;
+  }
+  .listTypeImage{
+    max-width: 100px;
+  }
+  .listButton{
+    min-width: 130px;
+    }
 }
 @media (max-width:416px){
   .signList{
@@ -156,5 +172,9 @@ code {
   }
   .links{
     margin-top: 20px;
+  }
+  .listItem{
+    height: fit-content;
+    flex-basis: content;
   }
 }

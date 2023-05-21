@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { home, about_us, contact_us } from '../../features/page/pageSlice'
 import { SignInTrue } from '../../features/nav/signInSlice'
@@ -10,8 +9,6 @@ const Nav = () => {
     const url = window.location.pathname
     let pageNumber = 0;
 
-
-    const navigate = useNavigate()
     // const pageNumber = useSelector((state) => state.page.value)
     const dispatch = useDispatch()
  
@@ -29,6 +26,9 @@ const Nav = () => {
                 break
             case "/contact":
                 pageNumber=2
+                break
+            case "/list":
+                pageNumber=3
                 break
             default:
                 break
@@ -54,7 +54,7 @@ const Nav = () => {
                 {pageNumber === 3 ? <h1 className=' border-b-4 border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Hostels</h1> : <h1 className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(hostels())} >Hostels</h1>} */}
                     {pageNumber === 1 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>About Us</h1> : <a href='/about' className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(about_us())} >About Us</a>}
                     {pageNumber === 2 ? <h1 className=' border-b-4  border-secondary cursor-not-allowed font-serif font-semibold text-primary '>Contact Us</h1> : <a href='/contact' className=' cursor-pointer hover:text-primary hover:opacity-70 hover:border-b-4 hover:border-[#d1e0e0]  ' onClick={() => dispatch(contact_us())} >Contact Us</a>}
-                    <h1 className=' shadow-lg cursor-pointer font-semibold text-primary px-4 bg-white rounded-tl-full rounded-br-full border-[1px] outline-secondary outline-double border-secondar hover:scale-[1.2]  hover:outline-none '  >List your property</h1>
+                    {pageNumber=== 3?<h1 className=' shadow-lg font-semibold text-white px-4 bg-primary rounded-tl-full rounded-br-full border-[1px] outline-primary cursor-not-allowed '>List your property</h1>:<a href='/list' className=' shadow-lg cursor-pointer font-semibold text-primary px-4 bg-white rounded-tl-full rounded-br-full border-[1px] outline-secondary outline-double hover:scale-[1.2]  hover:outline-none hover:bg-primary hover:text-white '  >List your property</a>}
                 </div>
                 <div className="sm:hidden flex items-center">
                     <button onClick={() => handleToggle()} id='menu-button' className="outline-none">
@@ -74,7 +74,7 @@ const Nav = () => {
 
             <div id='mobile-menu'  className=" shadow-md shadow-primary pb-2 hidden text-[20px] flex-col mt-[60px] w-full justify-center items-center " >
                 <div className=' signList flex justify-between h-fit w-full ' >
-                    <h1 className=' w-fit ml-1 -mt-8 shadow-lg cursor-pointer font-semibold text-primary px-4 bg-white rounded-tl-full rounded-br-full border-[1px] outline-secondary outline-double border-secondar hover:scale-[1.2]  hover:outline-none '  >List your property</h1>
+                    {pageNumber===3?<h1 className=' text-white w-fit ml-1 -mt-8 shadow-lg font-semibold px-4 bg-primary rounded-tl-full rounded-br-full border-[1px] outline-primary cursor-not-allowed '  >List your property</h1>:<a href='/list' className=' w-fit ml-1 -mt-8 shadow-lg cursor-pointer font-semibold text-primary px-4 bg-white rounded-tl-full rounded-br-full border-[1px] outline-secondary outline-double hover:scale-[1.2]  hover:outline-none hover:bg-primary hover:text-white '  >List your property</a>}
                     <div className=' sign ml-auto lg:ml-0 -mt-8 flex'>
                         <h1 onClick={()=>dispatch(SignInTrue())} className='cursor-pointer font-semibold text-primary hover:opacity-60 '>Sign in</h1>
                         <div onClick={()=>dispatch(SignUpTrue())} className=' ml-4 rounded-[7px] h-[37px] w-fit px-1 border-[3px] border-secondary hover:opacity-60'>

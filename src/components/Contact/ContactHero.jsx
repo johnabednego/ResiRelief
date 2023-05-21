@@ -14,7 +14,7 @@ const ContactHero = () => {
                     <Nav />
                 </div>
                 <div className='pt-28 lg:pt-24 justify-center items-center flex flex-col '>
-                    <div className=' animate-bounce sm:mt-16 flex flex-col bg-white px-2 sm:rounded-tl-3xl sm:rounded-tr-3xl shadow-xl shadow-[#413f3f]'>
+                    <div className=' animate-pulse sm:mt-16 flex flex-col bg-white px-2 sm:rounded-tl-3xl sm:rounded-tr-3xl shadow-xl shadow-[#413f3f]'>
                         <h1 className=' text-[30px] text-center sm:text-left sm:text-[40px] font-bold '>We Would Love to Hear From You</h1>
                         {/* <h1 className='text-center sm:text-left text-[12px] md:text-[16px] font-normal' ></h1>
                          */}
