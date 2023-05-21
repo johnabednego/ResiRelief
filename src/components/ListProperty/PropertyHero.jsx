@@ -11,7 +11,7 @@ const PropertyHero = () => {
   const signInModal = useSelector((state) => state.signInModal.value)
   const signUpModal = useSelector((state) => state.signUpModal.value)
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pb-8">
       <div className=" h-full w-full relative ">
         <div
           data-aos="zoom-in"

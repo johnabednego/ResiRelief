@@ -114,8 +114,11 @@ code {
 .listType{
   box-shadow: 0 2px 8px 3px rgba(0,0,0,.2);
 }
-
-
+@media (min-width: 992px){
+.container {
+    width: 970px;
+}
+}
 @media (min-width:640px){
   #mobile-menu{
     display: none;
