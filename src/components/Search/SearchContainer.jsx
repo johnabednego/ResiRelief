@@ -112,7 +112,8 @@ const SearchContainer = () => {
 
   return (  
     <div>
-         <Nav/>
+ <section className=" bg-transparent p-0 table relative w-full">
+      <Nav/>
       <section className=" bg-transparent p-0 table relative w-full">
         <div className="searchBG absolute w-full h-[420px] left-0 right-0"></div>
         <section className=" block xl:table-cell xl:align-top relative">
@@ -401,6 +402,7 @@ const SearchContainer = () => {
               </div>
             </div>:null}
           </div>
+        </section>
         </section>
       </section>
     </div>
