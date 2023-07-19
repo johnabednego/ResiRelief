@@ -113,7 +113,7 @@ const SearchContainer = () => {
   return (  
     <div>
  <section className=" bg-transparent p-0 table relative w-full">
-      <Nav/>
+      {/* <Nav/> */}
       <section className=" bg-transparent p-0 table relative w-full">
         <div className="searchBG absolute w-full h-[420px] left-0 right-0"></div>
         <section className=" block xl:table-cell xl:align-top relative">
