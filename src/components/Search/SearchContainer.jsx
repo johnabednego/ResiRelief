@@ -5,6 +5,11 @@ import date_in from "./assets/date_in.png";
 import date_out from "./assets/date_out.png";
 import people from "./assets/people.png";
 import { IoIosArrowDown } from "react-icons/io";
+import Nav from "../Nav/Nav";
+import Calendar from "./Calender";
+import moment from "moment";
+
+
 
 let today = new Date();
 
@@ -40,12 +45,36 @@ var dayOfWeek = today.toLocaleDateString("en-US", options);
 
 const SearchContainer = () => {
   const [showDiv, setShowDiv] = useState(false);
+  const [showEntryCalendar, setShowEntryCalendar] = useState(false);
+  const [selectedEntryDate, setSelectedEntryDate] = useState(moment());
 
+  const [showDepartureCalendar, setShowDepartureCalendar] = useState(false);
+  const [selectedDepartureDate, setSelectedDepartureDate] = useState(moment());
+
+  const toggleEntryCalendar = () => {
+    setShowDepartureCalendar(false);
+    setShowEntryCalendar(!showEntryCalendar);
+  };
+  
+  const selectEntryDate = (date) => {
+    setSelectedEntryDate(date);
+    setShowEntryCalendar(false);
+  };
+
+  const toggleDepartureCalendar = () => {
+    setShowEntryCalendar(false);
+    setShowDepartureCalendar(!showDepartureCalendar);
+  };
+  
+  const selectDepartureDate = (date) => {
+    setSelectedDepartureDate(date);
+    setShowDepartureCalendar(false);
+  };
   // Function to handle scroll event
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     // Check if the first div is scrolled up (you can change the threshold as needed)
-    if (scrollPosition > 0) {
+    if (scrollPosition > 350) {
       setShowDiv(true);
     } else {
       setShowDiv(false);
@@ -65,10 +94,27 @@ const SearchContainer = () => {
     input.focus();
   };
 
-  return (
+  let entryDate= formattedDate
+  let entryDayOfWeek= dayOfWeek
+
+  let departureDate= formattedDate
+  let departureDayOfWeek= dayOfWeek
+
+  if (selectedEntryDate !=null) {
+    entryDate=selectedEntryDate.format('dddd')
+    entryDayOfWeek=selectedEntryDate.format('DD MMM YYYY')
+  }
+
+  if (selectedDepartureDate !=null) {
+    departureDate=selectedDepartureDate.format('dddd')
+    departureDayOfWeek=selectedDepartureDate.format('DD MMM YYYY')
+  }
+
+  return (  
     <div>
+         <Nav/>
       <section className=" bg-transparent p-0 table relative w-full">
-        <div className="searchBG absolute w-full h-[320px] left-0 right-0"></div>
+        <div className="searchBG absolute w-full h-[420px] left-0 right-0"></div>
         <section className=" block xl:table-cell xl:align-top relative">
           <div className=" text-center min-w-[580px] m-auto mt-0 mb-0 h-auto w-full p-[1px] sm:p-[3%] max-w-[768px] lg:max-w-[900px] xl:max-w-[1124px] xl:pt-[24px]">
             <div className=" text-white relative mb-[16px] overflow-hidden">
@@ -119,7 +165,7 @@ const SearchContainer = () => {
                         </div>
                       </div>
                       {/**Entry date */}
-                      <div className=" border-[#dddfe2] rounded-tr-none rounded-br-none mb-4 xl:mb-0 w-[50%] xl:w-[25%] border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
+                      <div onClick={()=>toggleEntryCalendar()} className=" border-[#dddfe2] rounded-tr-none rounded-br-none mb-4 xl:mb-0 w-[50%] xl:w-[25%] border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
                         <div className=" p-0 pl-[10px] pr-[10px] absolute top-[50%] w-full translate-y-[-50%]">
                           <i className="Searchbox_icon  text-[#333] text-[20px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]">
                             <img
@@ -132,20 +178,21 @@ const SearchContainer = () => {
                             <div className=" text-[16px] w-auto pt-[5px] pb-[5px] p-0">
                               {/**Date */}
                               <div className=" font-normal text-[#2a2a2e] whitespace-nowrap overflow-ellipsis">
-                                {formattedDate}
+                                {entryDate}
                               </div>
 
                               {/**Day */}
                               <div className=" text-[14px] text-[#999] leading-[1.25] overflow-ellipsis">
-                                {dayOfWeek}
+                                {entryDayOfWeek}
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <Calendar name="entry" showCalendar={showEntryCalendar} selectDate={selectEntryDate} selectedDate={selectedEntryDate} setSelectedDate={setSelectedEntryDate}/>
 
                       {/**Leaving date */}
-                      <div className="before_ldate border-[#dddfe2] mb-4 xl:mb-0 w-[50%] xl:w-[25%]  rounded-tl-none rounded-bl-none border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
+                      <div  onClick={()=>toggleDepartureCalendar()}  className="before_ldate border-[#dddfe2] mb-4 xl:mb-0 w-[50%] xl:w-[25%]  rounded-tl-none rounded-bl-none border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
                         <div className=" p-0 pl-[10px] pr-[10px] absolute top-[50%] w-full translate-y-[-50%]">
                           <i className="Searchbox_icon  text-[#333] text-[20px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]">
                             <img
@@ -158,17 +205,18 @@ const SearchContainer = () => {
                             <div className=" text-[16px] w-auto pt-[5px] pb-[5px] p-0">
                               {/**Date */}
                               <div className=" font-normal text-[#2a2a2e] whitespace-nowrap overflow-ellipsis">
-                                {formattedDate}
+                                {departureDate}
                               </div>
 
                               {/**Day */}
                               <div className=" text-[14px] text-[#999] leading-[1.25] overflow-ellipsis">
-                                {dayOfWeek}
+                                {departureDayOfWeek}
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <Calendar name="departure"  showCalendar={showDepartureCalendar} selectDate={selectDepartureDate} selectedDate={selectedDepartureDate} setSelectedDate={setSelectedDepartureDate}/>
 
                       {/**Info details */}
                       <div className=" mr-[10px] xl:ml-3 xl:mr-0 border-[#dddfe2] w-full xl:w-[calc(50%-12px)] border-[1px] border-solid rounded-[8px] text-[18px] h-[66px] p-0 m-0 bg-[#fff] cursor-pointer inline-block relative align-top">
@@ -224,9 +272,10 @@ const SearchContainer = () => {
               </div>
             </div>
             {/** scroll search */}
+            {showDiv?
             <div className=" min-h-[144px]">
-              <div className="scroll_search_nav SearchBox-Scrollable bg-[#20274d] text-start left-0 top-0 max-h-[100px] px-0 py-[11px] fixed z-[1002]">
-                <div className="w-[1100px] mx-auto my-0 relative Searchbox__wrapper">
+              <div className="scroll_search_nav SearchBox-Scrollable bg-[#20274d]">
+                <div className="w-full justify-center mx-auto my-0 relative flex flex-wrap">
                   {/* Search bar */}
                   <div
                     onClick={() => focusInput("scroll_input")}
@@ -249,7 +298,7 @@ const SearchContainer = () => {
                     </div>
                   </div>
                   {/**Entry date */}
-                  <div style={{ marginRight: "0px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-tl-[6px] rounded-bl-[6px] mr-0 scroll_search_nav_input">
+                  <div style={{ marginRight: "5px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-[6px] mr-0 scroll_search_nav_input">
                     <div className="relative">
                       <span>
                         <i className=" text-[#333] text-[27px] p-[13px] mb-0 inline-block align-middle font-normal leading-[1]">
@@ -276,7 +325,7 @@ const SearchContainer = () => {
                     </div>
                   </div>
                   {/**Leaving date */}
-                  <div style={{ marginRight: "0px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-tr-[6px] rounded-br-[6px] mr-0 scroll_search_nav_input">
+                  <div style={{ marginLeft: "5px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-[6px] mr-0 scroll_search_nav_input">
                     <div className="relative">
                       <span>
                         <i className=" text-[#333] text-[27px] p-[13px] mb-0 inline-block align-middle font-normal leading-[1]">
@@ -350,7 +399,7 @@ const SearchContainer = () => {
                     </button>
                 </div>
               </div>
-            </div>
+            </div>:null}
           </div>
         </section>
       </section>
