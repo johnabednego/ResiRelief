@@ -113,11 +113,11 @@ const SearchContainer = () => {
   return (  
     <div>
  <section className=" bg-transparent p-0 table relative w-full">
-      {/* <Nav/> */}
+      <Nav/>
       <section className=" bg-transparent p-0 table relative w-full">
         <div className="searchBG absolute w-full h-[420px] left-0 right-0"></div>
         <section className=" block xl:table-cell xl:align-top relative">
-          <div className=" text-center min-w-[580px] m-auto mt-0 mb-0 h-auto w-full p-[1px] sm:p-[3%] max-w-[768px] lg:max-w-[900px] xl:max-w-[1124px] xl:pt-[24px]">
+          <div className=" text-center m-auto mt-0 mb-0 h-auto w-full p-[1px] md:p-[3%] max-w-[768px] lg:max-w-[900px] xl:max-w-[1124px] xl:pt-[24px]">
             <div className=" text-white relative mb-[16px] overflow-hidden">
               <h1 className=" text-[24px] font-bold uppercase leading-[1.3] mb-[4px] mt-0 overflow-hidden">
                 Home Away from Home
@@ -142,8 +142,8 @@ const SearchContainer = () => {
                 </li>
               </ul>
               <div className=" w-full">
-                <div className=" min-w-[580px] w-full m-0 relative">
-                  <div className="bg-[#f8f7f9] mt-[-16px] input_bg">
+                <div className=" w-full m-0 relative">
+                  <div className="bg-[#f8f7f9] mt-[-16px] input_bg pt-8 pl-6 pr-6 sm:pl-12 sm:pr-12 pb-12">
                     <div className="relative text-left">
                       {/**Search bar */}
                       <div
@@ -166,7 +166,7 @@ const SearchContainer = () => {
                         </div>
                       </div>
                       {/**Entry date */}
-                      <div onClick={()=>toggleEntryCalendar()} className=" border-[#dddfe2] rounded-tr-none rounded-br-none mb-4 xl:mb-0 w-[50%] xl:w-[25%] border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
+                      <div onClick={()=>toggleEntryCalendar()} className=" sm_entry_date border-[#dddfe2] rounded-tr-none rounded-br-none mb-4 xl:mb-0 w-[50%] xl:w-[25%] border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
                         <div className=" p-0 pl-[10px] pr-[10px] absolute top-[50%] w-full translate-y-[-50%]">
                           <i className="Searchbox_icon  text-[#333] text-[20px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]">
                             <img
@@ -193,7 +193,7 @@ const SearchContainer = () => {
                       <Calendar name="entry" showCalendar={showEntryCalendar} selectDate={selectEntryDate} selectedDate={selectedEntryDate} setSelectedDate={setSelectedEntryDate}/>
 
                       {/**Leaving date */}
-                      <div  onClick={()=>toggleDepartureCalendar()}  className="before_ldate border-[#dddfe2] mb-4 xl:mb-0 w-[50%] xl:w-[25%]  rounded-tl-none rounded-bl-none border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
+                      <div  onClick={()=>toggleDepartureCalendar()}  className="sm_leaving_date before_ldate border-[#dddfe2] mb-4 xl:mb-0 w-[50%] xl:w-[25%]  rounded-tl-none rounded-bl-none border-[1px] border-solid rounded-[8px] shadow-none text-[16px] h-[66px] p-0 bg-[#fff] inline-block cursor-pointer relative align-top">
                         <div className=" p-0 pl-[10px] pr-[10px] absolute top-[50%] w-full translate-y-[-50%]">
                           <i className="Searchbox_icon  text-[#333] text-[20px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]">
                             <img
@@ -244,7 +244,7 @@ const SearchContainer = () => {
                               {/**icon */}
                               <div className=" right-[24px] absolute top-[50%] translate-y-[-50%]">
                                 <i
-                                  className="Searchbox_icon  text-[#333] text-[12px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]"
+                                  className="Searchbox_icon sm_icon text-[#333] text-[12px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]"
                                   style={{ fontSize: "21px" }}
                                 >
                                   <IoIosArrowDown />
@@ -259,7 +259,7 @@ const SearchContainer = () => {
 
                   {/** Search button */}
                   <div className=" m-auto mt-[-32px]">
-                    <button className=" search_button w-[490px] h-[64px]">
+                    <button className=" search_button w-[300px] sm:w-[490px] h-[64px]">
                       <div className="flex items-center justify-center">
                         <div>
                           <span className="text-[20px] leading-[26px] font-normal">

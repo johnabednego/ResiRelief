@@ -179,7 +179,6 @@ ol, ul {
   background-color: rgb(83, 146, 249);
 }
 .input_bg{
-  padding: 32px 48px 48px;
   width: 100%;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
@@ -304,6 +303,41 @@ ol, ul {
   .listButton{
     min-width: 130px;
     }
+}
+@media (max-width: 360px){
+  .sm_entry_date{
+    width: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .sm_leaving_date{
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .before_ldate::before{
+    left: 0px;
+    width: 0px;
+  }
+  .before_ldate::after{
+    
+    border-right: 0px;
+    bottom: 0px;
+    content: "";
+    position: relative;
+    top: 0px;
+  }
+  .search_button{
+    width: 200px;
+  }
+  .sm_icon{
+    right: -30px;
+    position: relative;
+  }
+  .sm_calender{
+    margin-left: -15px;
+    width: 260px;
+  }
 }
 @media (max-width:416px){
   .signList{
