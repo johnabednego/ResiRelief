@@ -91,7 +91,8 @@ const Calendar = ({name,showCalendar, selectDate, selectedDate,setSelectedDate }
 
   
   return (
-    <div className={name==="entry"?'sm_calender mt-[-3.4rem] lg:mt-[-2rem] absolute z-50 w-[300px]':'sm_calender ml-8 sm:ml-[12.25rem] mt-[-3.4rem] lg:mt-[-2rem] absolute z-50 w-[300px]'}>
+    <div className='calender_display absolute z-50'>
+      <div className={name==="entry"?'sm_calender mt-[-3.4rem] lg:mt-[-2rem] absolute z-50 w-[300px]':'sm_calender ml-8 sm:ml-[12.25rem] mt-[-3.4rem] lg:mt-[-2rem] absolute z-50 w-[300px]'}>
       <div className="relative">
         {showCalendar && (
           <div className="absolute top-12 bg-white shadow-lg rounded-[6px] p-4">
@@ -99,6 +100,7 @@ const Calendar = ({name,showCalendar, selectDate, selectedDate,setSelectedDate }
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
