@@ -285,6 +285,12 @@ ol, ul {
 
 
 
+@media(max-width:466px){
+  .sm_entry{
+    margin-top: 12rem;
+  }
+}
+
 @media (max-width:344px){
   .margin{
     margin-left: 0px;
@@ -344,6 +350,9 @@ ol, ul {
     justify-content: center;
     align-items: center;  
   }
+  .sm_entry{
+    margin-top: 30rem;
+  }
 }
 @media (max-width:332px){
   .sm_calender{
@@ -356,8 +365,12 @@ ol, ul {
     justify-content: center;
     align-items: center;  
   }
+  .sm_entry{
+    margin-top: 30rem;
+  }
 
 }
+
 @media (max-width:416px){
   .signList{
     display: flex;
@@ -376,6 +389,21 @@ ol, ul {
   .listItem{
     height: fit-content;
     flex-basis: content;
+  }
+}
+@media(max-width: 467px){
+  .sm_info{
+    margin-top: 9rem;
+  }
+}
+@media(max-width: 374px){
+  .sm_info{
+    margin-top: 14rem;
+  }
+}
+@media (max-width: 361px){
+  .sm_info{
+    margin-top: 12rem;
   }
 }
 @media (max-width: 600px) {

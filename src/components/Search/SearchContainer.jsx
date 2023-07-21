@@ -270,7 +270,7 @@ const SearchContainer = () => {
                           </div>
                         </div>
                       </div>
-                      <Info showInfo={showInfo} room={room} setRoom={setRoom} adult={adult} setAdult={setAdult} child={child} setChild={setChild}/>
+                      <Info name="info" showInfo={showInfo} room={room} setRoom={setRoom} adult={adult} setAdult={setAdult} child={child} setChild={setChild}/>
 
                     </div>
                   </div>
@@ -317,7 +317,7 @@ const SearchContainer = () => {
                     </div>
                   </div>
                   {/**Entry date */}
-                  <div style={{ marginRight: "5px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-[6px] mr-0 scroll_search_nav_input">
+                  <div  onClick={()=>toggleEntryCalendar()} style={{ marginRight: "5px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-[6px] mr-0 scroll_search_nav_input">
                     <div className="relative">
                       <span>
                         <i className=" text-[#333] text-[27px] p-[13px] mb-0 inline-block align-middle font-normal leading-[1]">
@@ -332,19 +332,21 @@ const SearchContainer = () => {
                         <div className=" text-[14px] w-[115px] py-[5px]">
                           {/**Date */}
                           <div className=" font-bold text-[#2a2a2e] whitespace-nowrap overflow-ellipsis">
-                            {formattedDate}
+                          {entryDate}
                           </div>
 
                           {/**Day */}
                           <div className=" text-[14px] text-[#999] leading-[1.25] overflow-ellipsis">
-                            {dayOfWeek}
+                          {entryDayOfWeek}
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <Calendar name="sm_entry" showCalendar={showEntryCalendar} selectDate={selectEntryDate} selectedDate={selectedEntryDate} setSelectedDate={setSelectedEntryDate}/>
+                  
                   {/**Leaving date */}
-                  <div style={{ marginLeft: "5px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-[6px] mr-0 scroll_search_nav_input">
+                  <div onClick={()=>toggleDepartureCalendar()}  style={{ marginLeft: "5px" }} className="w-[177px] border-r-[#90949c] border-r-[1px] border-solid h-[48px] px-[5px] py-0 rounded-[6px] mr-0 scroll_search_nav_input">
                     <div className="relative">
                       <span>
                         <i className=" text-[#333] text-[27px] p-[13px] mb-0 inline-block align-middle font-normal leading-[1]">
@@ -359,20 +361,21 @@ const SearchContainer = () => {
                         <div className=" text-[14px] w-[115px] py-[5px]">
                           {/**Date */}
                           <div className=" font-bold  text-[#2a2a2e] whitespace-nowrap overflow-ellipsis">
-                            {formattedDate}
+                          {departureDate}
                           </div>
 
                           {/**Day */}
                           <div className=" text-[14px] text-[#999] leading-[1.25] overflow-ellipsis">
-                            {dayOfWeek}
+                          {departureDayOfWeek}
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
+                  <Calendar name="sm_depart" showCalendar={showDepartureCalendar} selectDate={selectDepartureDate} selectedDate={selectedDepartureDate} setSelectedDate={setSelectedDepartureDate}/>
+                  
                   {/**Info details */}
-                  <div style={{ marginLeft: "5px", marginRight: "5px" }} className=" Searchbox_info h-[48px] px-[5px] w-[220px] rounded-[6px] scroll_search_nav_input">
+                  <div onClick={()=>toggleInfo()} style={{ marginLeft: "5px", marginRight: "5px" }} className=" Searchbox_info h-[48px] px-[5px] w-[220px] rounded-[6px] scroll_search_nav_input">
                     <div className="relative">
                       <span>
                         <i className="Searchbox_icon  text-[#333] text-[27px] p-[13px] mb-0 inline-block align-middle font-normal leading-[1]">
@@ -385,12 +388,12 @@ const SearchContainer = () => {
                         <div className=" text-[14px] py-[5px]">
                           {/**people */}
                           <div className=" font-bold  text-[#2a2a2e] whitespace-nowrap overflow-ellipsis pr-[34px]">
-                            4 Adults, 1 child
+                             {adult>1?`${adult} adults`:"1 adult"} {child===0?"":child===1?", 1 child":`, ${child} children` }
                           </div>
 
                           {/**number of rooms */}
                           <div className=" text-[14px] text-[#999] leading-[1.25] overflow-ellipsis">
-                            1 room
+                          {room>1?`${room} rooms`:"1 room"}
                           </div>
 
                           {/**icon */}
@@ -406,6 +409,8 @@ const SearchContainer = () => {
                       </div>
                     </div>
                   </div>
+                  <Info name="sm_info" showInfo={showInfo} room={room} setRoom={setRoom} adult={adult} setAdult={setAdult} child={child} setChild={setChild}/>
+
                   {/** Search button */}
                     <button className="searchButton z-0 py-[10px] h-[48px]">
                       <div className="flex items-center justify-center">

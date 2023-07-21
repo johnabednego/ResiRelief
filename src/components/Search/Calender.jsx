@@ -91,7 +91,17 @@ const Calendar = ({name,showCalendar, selectDate, selectedDate,setSelectedDate }
 
   
   return (
-    <div className='calender_display absolute z-50'>
+    <div className=' flex justify-center calender_display absolute z-50'>
+      {name==="sm_entry" || name==="sm_depart"?
+       <div className={name==="sm_entry"?'sm_entry ml-[0px] lg:ml-[-15rem] sm_calender  mt-[1rem] absolute z-50 w-[300px]':'sm_entry ml-[0px] lg:ml-[12rem] sm_calender  mt-[6rem] md:mt-[1rem] absolute z-50 w-[300px]'}>
+       <div className="relative">
+         {showCalendar && (
+           <div className="absolute top-12 bg-white shadow-lg rounded-[6px] p-4  border-[1px] border-primary">
+             {renderCalendar()}
+           </div>
+         )}
+       </div>
+     </div>:
       <div className={name==="entry"?'sm_calender mt-[-3.4rem] lg:mt-[-2rem] absolute z-50 w-[300px]':'sm_calender ml-8 sm:ml-[12.25rem] mt-[-3.4rem] lg:mt-[-2rem] absolute z-50 w-[300px]'}>
       <div className="relative">
         {showCalendar && (
@@ -100,7 +110,7 @@ const Calendar = ({name,showCalendar, selectDate, selectedDate,setSelectedDate }
           </div>
         )}
       </div>
-    </div>
+    </div>}
     </div>
   );
 };
