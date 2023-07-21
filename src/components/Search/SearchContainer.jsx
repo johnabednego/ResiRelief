@@ -8,6 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Nav from "../Nav/Nav";
 import Calendar from "./Calender";
 import moment from "moment";
+import Info from "./Info";
 
 
 
@@ -51,8 +52,14 @@ const SearchContainer = () => {
   const [showDepartureCalendar, setShowDepartureCalendar] = useState(false);
   const [selectedDepartureDate, setSelectedDepartureDate] = useState(moment());
 
+  const [showInfo, setShowshowInfo] = useState(false);
+  let [room, setRoom] = useState(1);
+  let [adult, setAdult] = useState(1);
+  let [child, setChild] = useState(1);
+
   const toggleEntryCalendar = () => {
     setShowDepartureCalendar(false);
+    setShowshowInfo(false);
     setShowEntryCalendar(!showEntryCalendar);
   };
   
@@ -63,6 +70,7 @@ const SearchContainer = () => {
 
   const toggleDepartureCalendar = () => {
     setShowEntryCalendar(false);
+    setShowshowInfo(false)
     setShowDepartureCalendar(!showDepartureCalendar);
   };
   
@@ -70,6 +78,14 @@ const SearchContainer = () => {
     setSelectedDepartureDate(date);
     setShowDepartureCalendar(false);
   };
+
+
+  const toggleInfo = () => {
+    setShowDepartureCalendar(false);
+    setShowEntryCalendar(false);
+    setShowshowInfo(!showInfo);
+  };
+
   // Function to handle scroll event
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
@@ -220,7 +236,7 @@ const SearchContainer = () => {
                       <Calendar name="departure"  showCalendar={showDepartureCalendar} selectDate={selectDepartureDate} selectedDate={selectedDepartureDate} setSelectedDate={setSelectedDepartureDate}/>
 
                       {/**Info details */}
-                      <div className=" mr-[10px] xl:ml-3 xl:mr-0 border-[#dddfe2] w-full xl:w-[calc(50%-12px)] border-[1px] border-solid rounded-[8px] text-[18px] h-[66px] p-0 m-0 bg-[#fff] cursor-pointer inline-block relative align-top">
+                      <div onClick={()=>toggleInfo()} className=" mr-[10px] xl:ml-3 xl:mr-0 border-[#dddfe2] w-full xl:w-[calc(50%-12px)] border-[1px] border-solid rounded-[8px] text-[18px] h-[66px] p-0 m-0 bg-[#fff] cursor-pointer inline-block relative align-top">
                         <div className=" p-0 pl-[10px] pr-[10px] absolute top-[50%] w-full translate-y-[-50%]">
                           <i className="Searchbox_icon  text-[#333] text-[20px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]">
                             <img
@@ -233,18 +249,18 @@ const SearchContainer = () => {
                             <div className=" text-[16px] w-auto pt-[5px] pb-[5px] p-0">
                               {/**people */}
                               <div className=" font-normal text-[#2a2a2e] whitespace-nowrap overflow-ellipsis pr-[34px]">
-                                4 Adults, 1 child
+                              {adult>1?`${adult} adults`:"1 adult"} {child===0?"":child===1?", 1 child":`, ${child} children` }
                               </div>
 
                               {/**number of rooms */}
                               <div className=" text-[14px] text-[#999] leading-[1.25] overflow-ellipsis">
-                                1 room
+                                {room>1?`${room} rooms`:"1 room"}
                               </div>
 
                               {/**icon */}
                               <div className=" right-[24px] absolute top-[50%] translate-y-[-50%]">
                                 <i
-                                  className="Searchbox_icon sm_icon text-[#333] text-[12px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]"
+                                  className=" mt-2 Searchbox_icon sm_icon text-[#333] text-[12px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]"
                                   style={{ fontSize: "21px" }}
                                 >
                                   <IoIosArrowDown />
@@ -254,6 +270,8 @@ const SearchContainer = () => {
                           </div>
                         </div>
                       </div>
+                      <Info showInfo={showInfo} room={room} setRoom={setRoom} adult={adult} setAdult={setAdult} child={child} setChild={setChild}/>
+
                     </div>
                   </div>
 
