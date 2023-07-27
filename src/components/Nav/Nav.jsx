@@ -7,7 +7,7 @@ import { SignUpTrue } from '../../features/nav/signUpSlice'
 const Nav = () => {
 
     const url = window.location.pathname
-    let pageNumber = 0;
+    let pageNumber = -1;
 
     // const pageNumber = useSelector((state) => state.page.value)
     const dispatch = useDispatch()

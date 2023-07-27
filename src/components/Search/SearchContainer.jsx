@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { RiHotelLine } from "react-icons/ri";
+import {MdApartment} from "react-icons/md"
+import {GiFamilyHouse} from "react-icons/gi"
+import {FaHouseUser} from "react-icons/fa"
 import { CiSearch } from "react-icons/ci";
 import date_in from "./assets/date_in.png";
 import date_out from "./assets/date_out.png";
 import people from "./assets/people.png";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Nav from "../Nav/Nav";
 import Calendar from "./Calender";
 import moment from "moment";
 import Info from "./Info";
-
+import SignInModal from '../../components/SignIn/SignInModal'
+import SignUpModal from '../../components/SignUp/SignUpModal'
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 
 let today = new Date();
@@ -44,7 +50,14 @@ var options = { weekday: "long" };
 // Format the date string
 var dayOfWeek = today.toLocaleDateString("en-US", options);
 
-const SearchContainer = () => {
+const SearchContainer = ({facility_type, sendDataToParent}) => {
+
+  const navigate = useNavigate();
+
+  const signInModal = useSelector((state) => state.signInModal.value)
+  const signUpModal = useSelector((state) => state.signUpModal.value)
+
+  let [facility, setFacility] = useState(0)
   const [showDiv, setShowDiv] = useState(false);
   const [showEntryCalendar, setShowEntryCalendar] = useState(false);
   const [selectedEntryDate, setSelectedEntryDate] = useState(moment());
@@ -97,12 +110,34 @@ const SearchContainer = () => {
     }
   };
 
+  // Seting the facility based on the url
+  const facility_setting = () =>{
+    if (facility_type==="hotels"){
+      sendDataToParent(3)
+      setFacility(3)
+    } 
+    else if (facility_type==="apartments") {
+      sendDataToParent(1)
+      setFacility(1)
+    }
+    else if (facility_type==="hostels") {
+      sendDataToParent(0)
+      setFacility(0)
+    }
+    else if (facility_type==="guest_houses"){
+      sendDataToParent(2)
+      setFacility(2)
+    }
+  }
+
   // Attach the scroll event listener
   useEffect(() => {
+    facility_setting()
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
   }, []);
 
   const focusInput = (inputId) => {
@@ -125,6 +160,29 @@ const SearchContainer = () => {
     departureDate=selectedDepartureDate.format('dddd')
     departureDayOfWeek=selectedDepartureDate.format('DD MMM YYYY')
   }
+ 
+  const hostel_data = ()=>{
+    setFacility(0)
+    sendDataToParent(0)
+    navigate("/facility_type/hostels")
+  }
+  const apartment_data = ()=>{
+    setFacility(1)
+    sendDataToParent(1)
+    navigate("/facility_type/apartments")
+  }
+  const guest_house_data = ()=>{
+    setFacility(2)
+    sendDataToParent(2)
+    navigate("/facility_type/guest_houses")
+  }
+  const hotel_data = ()=>{
+    setFacility(3)
+    sendDataToParent(3)
+    navigate("/facility_type/hotels")
+  }
+
+ 
 
   return (  
     <div>
@@ -142,18 +200,57 @@ const SearchContainer = () => {
             {/** normal searching */}
             <div className="search_container">
               <ul
-                className="search_link"
-                style={{ zIndex: "998", position: "relative" }}
+                className="search_link flex flex-wrap px-2  sm:px-16"
+                style={{ zIndex: "1", position: "relative" }}
               >
-                <li className="search_link_li cursor-pointer">
-                  <div className=" text-[#5392F9] pb-3">
+                 {/* Hostels */}
+                 <li onClick={()=>hostel_data()} className="search_link_li cursor-pointer">
+                  <div className={facility===0?" text-[#5392F9] pb-3":" text-black pb-3"}>
+                    <div className=" flex items-center">
+                      <GiFamilyHouse className=" overflow-hidden w-5 h-5 mr-1 min-w-[20px] min-h-[20px] max-w-[20px] max-h-[20px] " />
+                      <h6 className=" text-[16px] font-normal leading-[16px] m-0">
+                        Hostels
+                      </h6>
+                    </div>
+                    <div className={facility===0?"search_active bg-[#5392F9]":"search_active bg-white"}></div>
+                  </div>
+                </li>
+                {/* Apartments */}
+                <li onClick={()=>apartment_data()} className="search_link_li cursor-pointer">
+                  <div className= {facility===1?" text-[#5392F9] pb-3":"text-black pb-3"}>
+                    <div className=" flex items-center">
+                      <MdApartment className=" overflow-hidden w-5 h-5 mr-1 min-w-[20px] min-h-[20px] max-w-[20px] max-h-[20px] " />
+                      <h6 className=" text-[16px] font-normal leading-[16px] m-0">
+                        Apartments
+                      </h6>
+                    </div>
+                    <div className={facility===1?"search_active bg-[#5392F9]":"search_active bg-white"}></div>
+                  </div>
+                </li>
+
+                 {/* Guest Houses */}
+                 <li onClick={()=>guest_house_data()} className="search_link_li cursor-pointer">
+                  <div className={facility===2?" text-[#5392F9] pb-3":" text-black pb-3"}>
+                    <div className=" flex items-center">
+                      <FaHouseUser className=" overflow-hidden w-5 h-5 mr-1 min-w-[20px] min-h-[20px] max-w-[20px] max-h-[20px] " />
+                      <h6 className=" text-[16px] font-normal leading-[16px] m-0">
+                        Guest Houses
+                      </h6>
+                    </div>
+                    <div className={facility===2?"search_active bg-[#5392F9]":"search_active bg-white"}></div>
+                  </div>
+                </li>
+
+                {/* Hotels */}
+                <li onClick={()=>hotel_data()} className="search_link_li cursor-pointer">
+                  <div className= {facility===3?" text-[#5392F9] pb-3":" text-black pb-3"}>
                     <div className=" flex items-center">
                       <RiHotelLine className=" overflow-hidden w-5 h-5 mr-1 min-w-[20px] min-h-[20px] max-w-[20px] max-h-[20px] " />
                       <h6 className=" text-[16px] font-normal leading-[16px] m-0">
                         Hotels
                       </h6>
                     </div>
-                    <div className="search_active"></div>
+                    <div className={facility===3?"search_active bg-[#5392F9]":"search_active bg-white"}></div>
                   </div>
                 </li>
               </ul>
@@ -263,7 +360,7 @@ const SearchContainer = () => {
                                   className=" mt-2 Searchbox_icon sm_icon text-[#333] text-[12px] pl-[14px] pr-4 pt-3 pb-3 mb-0 inline-block align-middle font-normal leading-[1]"
                                   style={{ fontSize: "21px" }}
                                 >
-                                  <IoIosArrowDown />
+                                 {showInfo?<IoIosArrowUp/>:<IoIosArrowDown />}
                                 </i>
                               </div>
                             </div>
@@ -292,7 +389,7 @@ const SearchContainer = () => {
             </div>
             {/** scroll search */}
             {showDiv?
-            <div className=" min-h-[144px]">
+            <div className="">
               <div className="scroll_search_nav SearchBox-Scrollable bg-[#20274d]">
                 <div className="w-full justify-center mx-auto my-0 relative flex flex-wrap">
                   {/* Search bar */}
@@ -402,7 +499,7 @@ const SearchContainer = () => {
                               className="Searchbox_icon  text-[#333] text-[12px] mb-[3px] inline-block align-middle font-normal leading-[1]"
                               style={{ fontSize: "15px" }}
                             >
-                              <IoIosArrowDown />
+                            {showInfo?<IoIosArrowUp/>: <IoIosArrowDown />}
                             </i>
                           </div>
                         </div>
@@ -428,6 +525,9 @@ const SearchContainer = () => {
         </section>
         </section>
       </section>
+      {signInModal?
+    <SignInModal/>:null}
+    {signUpModal?<SignUpModal/>:null}
     </div>
   );
 };

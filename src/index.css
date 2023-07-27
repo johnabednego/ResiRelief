@@ -139,8 +139,6 @@ Search container
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  padding-left: 64px;
-  padding-right: 64px;
   width: auto;
   left: auto;
   z-index: 1;
@@ -176,7 +174,6 @@ ol, ul {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  background-color: rgb(83, 146, 249);
 }
 .input_bg{
   width: 100%;
@@ -283,7 +280,20 @@ ol, ul {
   margin: 0 auto;
 }
 
+.list_container{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12);
+  -webkit-transition: -webkit-box-shadow .2s ease-in-out;
+  transition: -webkit-box-shadow .2s ease-in-out;
+  transition: box-shadow .2s ease-in-out;
+  transition: box-shadow .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  background-color: rgb(235, 240, 252);
+} 
 
+@media(min-width: 308px){
+  .facility{
+    width: 300px;
+  }
+}
 
 @media(max-width:466px){
   .sm_entry{

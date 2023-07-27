@@ -15,10 +15,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Search/>} />
+          <Route index element={<Home/>} />
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>} />
           <Route path="/list" element={<ListProperty/>}/>
+          <Route path="/facility_type/:data" element={<Search/>} />
         </Routes>
       </BrowserRouter>
     </div>

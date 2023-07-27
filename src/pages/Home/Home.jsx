@@ -34,7 +34,8 @@ const Home = () => {
       <div className=' px-6 sm:px-12'>
         <Tittle tittle="Browse by property type" />
         <div data-aos="zoom-in" data-aos-duration="1000" className=' -mx-12 px-4 flex flex-wrap justify-center xl:justify-between ' >
-          <div
+          {/* hostels */}
+          <a href='/facility_type/hostels'><div
             data-aos="flip-left"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -43,8 +44,10 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={HostelsSlider} tittle="Hostels" value="41,557 hostels" />
-          </div>
-          <div
+          </div></a>
+          {/* apartment */}
+          
+          <a href='/facility_type/apartments'><div
             data-aos="flip-right"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -53,8 +56,9 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={ApartmentsSlider} tittle="Apartments" value="1,070,954 apartments" />
-          </div>
-          <div
+          </div></a>
+          {/* guest house */}
+          <a href='/facility_type/guest_houses'><div
             data-aos="fade-up"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -63,8 +67,9 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={GuestHousesSlider} tittle="Guest Houses" value="128,54 guest houses" />
-          </div>
-          <div
+          </div></a>
+          {/* hotel */}
+          <a href='/facility_type/hotels'><div
             data-aos="fade-down"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -73,7 +78,7 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={HotelsSlider} tittle="Hotels" value="557 hotels" />
-          </div>
+          </div></a>
         </div>
         <Tittle tittle="Explore Ghana" subtittle="These popular destinations have a lot to offer" />
         <Explore />

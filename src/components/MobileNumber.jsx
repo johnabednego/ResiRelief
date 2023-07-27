@@ -11,10 +11,15 @@ const MobileNumber = () => {
   let currentSuffixes
 
   const userLocation = async () => {
-    let url = 'https://ipinfo.io/json?token=e94155e6189079'
+    try {
+      let url = 'https://ipinfo.io/json?token=e94155e6189079'
     let response = await fetch(url)
     let data = await response.json();
     setCity(data.city)
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   const [countryState, setCountryState] = useState({
@@ -108,6 +113,7 @@ const MobileNumber = () => {
                     );
                   })}
                 </select>
+                {!currentCountry?<h1 className=" text-[#ff0000]">Check your Internet</h1>:null}
                 <div>
                   <div className=' box-border flex -m-1 w-[calc(100%_+_8px)]'>
                     <div className='w-full p-1 box-border m-0 flex-grow-0 max-w-fit'>
