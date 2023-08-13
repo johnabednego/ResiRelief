@@ -7,6 +7,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import ListProperty from "./pages/ListProperty/ListProperty"
 import Search from "./pages/Search/Search";
+import MoreDetails from "./components/Search/MoreDetails";
 function App() {
   useEffect(() => {
     Aos.init();
@@ -15,7 +16,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home/>} />
+          <Route index element={<MoreDetails/>} />
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>} />
           <Route path="/list" element={<ListProperty/>}/>
