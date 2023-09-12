@@ -358,8 +358,8 @@ const MoreDetails = () => {
                 alt=""
                 src="/main.png"
               />
-              <div className=" float-right -mt-6 relative cursor-pointer text-white my-0 mx-[!important]  right-[8px] bottom-[8px] rounded bg-[rgba(0,0,0,0.5)] shadow-[0px_1px_3px_1px_rgba(0,_0,_0,_0.2)] w-[123.25px] overflow-hidden shrink-0 flex flex-row pt-[7px] px-3 pb-[7px] box-border items-start justify-start">
-                <div className="w-[99.25px] flex flex-row items-center justify-center gap-[8px]">
+              <div className=" float-right -mt-6 relative cursor-pointer text-white my-0 mx-[!important]  right-[8px] bottom-[8px] rounded bg-[rgba(0,0,0,0.5)] shadow-[0px_1px_3px_1px_rgba(0,_0,_0,_0.2)] w-fit overflow-hidden shrink-0 flex flex-row pt-[7px] px-3 pb-[7px] box-border items-start justify-start">
+                <div className=" w-fit flex flex-row items-center justify-center gap-[8px]">
                   <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1.5px] px-px pb-0.5 box-border items-start justify-start">
                     <img
                       className="relative w-2.5 h-[8.5px]"
@@ -367,7 +367,7 @@ const MoreDetails = () => {
                       src="/vector.svg"
                     />
                   </div>
-                  <div className="w-[79.25px] flex flex-row pt-0 pb-[1px] pl-0.5 box-border items-start justify-center">
+                  <div className=" w-fit flex flex-row pt-0 pb-[1px] pl-0.5 box-border items-start justify-center">
                     <div className="relative leading-[12px]">
                       See all photos
                     </div>

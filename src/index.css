@@ -486,3 +486,11 @@ ol, ul {
       font-size: 27px;
   }
   }
+
+  @media (max-width: 810px){
+    .overview{
+      width: 100%;
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+    }
+  }
