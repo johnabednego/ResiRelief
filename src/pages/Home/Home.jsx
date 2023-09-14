@@ -20,6 +20,7 @@ const Home = () => {
   const signInModal = useSelector((state) => state.signInModal.value)
   const signUpModal = useSelector((state) => state.signUpModal.value)
  
+ 
   return (
     <div className='bg-white relative  z-10  overflow-hidden '>
       <div data-aos='zoom-in' data-aos-duration="3000" className=' xl:px-12 pb-1 fixed w-full z-10  '>
@@ -35,7 +36,7 @@ const Home = () => {
         <Tittle tittle="Browse by property type" />
         <div data-aos="zoom-in" data-aos-duration="1000" className=' -mx-12 px-4 flex flex-wrap justify-center xl:justify-between ' >
           {/* hostels */}
-          <a href='/facility_type/hostels'><div
+          <div
             data-aos="flip-left"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -44,10 +45,10 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={HostelsSlider} tittle="Hostels" value="41,557 hostels" />
-          </div></a>
+          </div>
           {/* apartment */}
           
-          <a href='/facility_type/apartments'><div
+            <div
             data-aos="flip-right"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -56,9 +57,9 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={ApartmentsSlider} tittle="Apartments" value="1,070,954 apartments" />
-          </div></a>
+          </div>
           {/* guest house */}
-          <a href='/facility_type/guest_houses'><div
+          <div
             data-aos="fade-up"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -67,9 +68,9 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={GuestHousesSlider} tittle="Guest Houses" value="128,54 guest houses" />
-          </div></a>
+          </div>
           {/* hotel */}
-          <a href='/facility_type/hotels'><div
+          <div
             data-aos="fade-down"
             data-aos-easing="ease-in-out"
             data-aos-delay="50"
@@ -78,7 +79,7 @@ const Home = () => {
             data-aos-once="false"
           >
             <ImageSlider slides={HotelsSlider} tittle="Hotels" value="557 hotels" />
-          </div></a>
+          </div>
         </div>
         <Tittle tittle="Explore Ghana" subtittle="These popular destinations have a lot to offer" />
         <Explore />

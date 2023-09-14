@@ -15,9 +15,9 @@ const Overview = () => {
   ];
   return (
     <div className=" w-full h-fit  flex flex-col md:flex-row items-center justify-center text-left text-lg text-black">
-      <div className=" overview h-fit z-[1]">
+      <div className=" w-full items-center justify-center flex flex-col h-fit z-[1]">
         {/* Name and location */}
-        <div className=" h-fit w-full rounded bg-white box-border flex flex-col pt-[16px] pb-[16px] pr-[16px] pl-[16px] items-start justify-center text-xs text-white border-[1px] border-solid border-[#DDDFE2]">
+        <div className=" w-full md:w-fit h-fit rounded bg-white box-border flex flex-col pt-[16px] pb-[16px] pr-[16px] pl-[16px] items-start justify-center text-xs text-white border-[1px] border-solid border-[#DDDFE2]">
           <div className="overflow-hidden flex flex-row pt-0 pb-[3px] pr-2 pl-0 items-center justify-center">
             {/* best seller */}
             <div className="rounded-10xs w-[79px] overflow-hidden shrink-0 flex flex-row items-center justify-center z-[1]">
@@ -39,13 +39,13 @@ const Overview = () => {
               </div>
             </div>
           </div>
-          <div className=" w-full md:w-[742.4px] h-fit text-sm text-black">
-            <div className=" w-full top-[0px] right-[0px] left-[0px] h-[37.7px] text-[25px]">
+          <div className=" w-full md: h-fit text-xs sm:text-sm text-black">
+            <div className=" w-full top-[0px] right-[0px] left-[0px]  text-[18px] sm:text-[25px]">
               <b className=" top-[-1.6px] left-[0px] leading-[37.14px]">
                 Accra Luxury Apartments @ The Gardens
               </b>
             </div>
-            <div className=" flex top-[37.3px] left-[0px] leading-[20px]">
+            <div className=" flex  leading-[20px]">
               Cantonments, Accra, Ghana
               <div className=" mt-[2px] ml-1 flex flex-row py-0 pr-[2px] pl-0 items-start justify-start text-xs">
                 <div className=" leading-[18.57px]">
@@ -58,8 +58,8 @@ const Overview = () => {
             </div>
 
             <div className=" w-full top-[57.7px] right-[0px] left-[0px] overflow-hidden flex flex-col pt-2 px-0 pb-[1px] box-border items-start justify-start gap-[7.4px]">
-              <div className="flex-1  box-border w-[742.4px] min-w-[1px] z-[1] border-b-[0.8px] border-solid border-whitesmoke-200" />
-              <div className="w-[742.4px] flex flex-row pt-0 pb-[1px] pr-[23px] pl-0 box-border items-start justify-start z-[0]">
+              <div className="flex-1  box-border  min-w-[1px] z-[1] border-b-[0.8px] border-solid border-whitesmoke-200" />
+              <div className=" flex flex-row pt-0 pb-[1px] pr-[23px] pl-0 box-border items-start justify-start z-[0]">
                 <div className=" leading-[20px] font-light">
                   <p className="m-0">
                     Conveniently situated in the Cantonments part of Accra, this
@@ -76,7 +76,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className=" w-full top-[230.1px] right-[0px] left-[0px] rounded bg-white box-border flex flex-row pt-[15px] pb-[16px] pr-[16px] pl-[16px] items-start justify-start border-[1px] border-solid border-[#DDDFE2]">
+        <div className="w-full md:w-fit  top-[230.1px] right-[0px] left-[0px] rounded bg-white box-border flex flex-row pt-[15px] pb-[16px] pr-[16px] pl-[16px] items-start justify-start border-[1px] border-solid border-[#DDDFE2]">
           {/* Highlight */}
           <div className=" flex flex-col items-start justify-start gap-[17.2px]">
             <div className=" leading-[24px] font-medium">Highlights</div>
@@ -166,37 +166,37 @@ const Overview = () => {
           </div>
         </div>
         {/* Hygiene */}
-        <div className=" p-4 w-full top-[391.7px] right-[0px] left-[0px] rounded bg-white box-border h-fit border-[1px] border-solid border-[#DDDFE2]">
+        <div className="w-full md:w-fit p-4 top-[391.7px] rounded bg-white box-border h-fit border-[1px] border-solid border-[#DDDFE2]">
           <div className=" top-[11.6px] left-[12.8px] leading-[24px] font-medium">
             Hygiene Plus
           </div>
-          <div className="top-[28.8px] right-[0.8px] left-[0.8px] overflow-hidden flex flex-col pt-4 px-4 pb-[16px] box-border items-start justify-start text-base">
-            <div className=" w-[716.31px] h-[22px]">
+          <div className="top-[28.8px] right-[0.8px] left-[0.8px] flex flex-col pt-4 px-4 pb-[16px] box-border items-start justify-start text-base">
+            <div className="">
               <div className=" top-[-1.2px] left-[0px] leading-[22px]">
                 This property has self-selected and self-certified the following
                 hygiene measures.
               </div>
             </div>
 
-            <div className=" w-fit  flex-wrap flex flex-row pt-3 pb-1 pr-[4px] pl-1 box-border items-center justify-center text-sm">
+            <div className=" flex-wrap flex flex-row pt-3 pb-1 pr-[4px] pl-1 box-border items-center justify-center text-sm">
               {/* safety */}
-              <div className=" mr-2 mt-1 rounded bg-[#F8F7F9] flex flex-row p-2 box-border items-start justify-start min-w-[148px] text-xs">
+              <div className=" mr-2 mt-1 rounded bg-[#F8F7F9] flex flex-row p-2 box-border items-start justify-start text-xs">
                 <div className="flex flex-row pt-0 px-2 pb-[46px] items-start justify-start">
-                  <div className="overflow-hidden flex flex-row items-start justify-center">
+                  <div className=" flex flex-row items-start justify-center">
                     <img
-                      className=" w-9 h-9 overflow-hidden shrink-0"
+                      className=" w-9 h-9"
                       alt=""
                       src="/safetyfeaturessvg.svg"
                     />
                   </div>
                 </div>
-                <div className="flex-1  h-[82.35px] overflow-hidden">
+                <div className="flex-1">
                   <div className=" w-full top-[1.8px] right-[0px] left-[0px] flex flex-row pt-0 pb-[1px] pr-[72px] pl-0 box-border items-start justify-start text-smi">
                     <div className=" leading-[18.19px] font-semibold">
                       Safety Features
                     </div>
                   </div>
-                  <div className=" w-full top-[27.79px] right-[0px] left-[0px] flex flex-row pt-0 pb-[3px] pr-2 pl-0 box-border items-start justify-start gap-[8px] text-dimgray-100">
+                  <div className=" w-full top-[27.79px] right-[0px] left-[0px] flex flex-row pt-0 pb-[3px] pr-2 pl-0 box-border items-start justify-start gap-[8px] ">
                     <div className="flex flex-row pt-[1px] px-0 pb-[18px] items-start justify-center">
                       <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1px] pb-[1px] pr-[1px] pl-[1px] box-border items-start justify-start">
                         <img
@@ -220,7 +220,7 @@ const Overview = () => {
               </div>
 
               {/* preventive */}
-              <div className=" mr-2 mt-1 rounded bg-[#F8F7F9] flex flex-row p-2 box-border items-start justify-start min-w-[148px]">
+              <div className=" mr-2 mt-1 rounded bg-[#F8F7F9] flex flex-row p-2 box-border items-start justify-start">
                 <div className="flex flex-row pt-0 px-2 pb-[46px] items-start justify-start">
                   <div className="overflow-hidden flex flex-row items-start justify-center">
                     <img
@@ -231,13 +231,13 @@ const Overview = () => {
                   </div>
                 </div>
                 <div className="flex-1 overflow-hidden flex flex-col pt-[1px] px-0 pb-[9px] items-start justify-start gap-[6.8px]">
-                  <div className="w-[171.46px] flex flex-row pt-0 pb-[1px] pr-[9px] pl-0 box-border items-start justify-start">
+                  <div className=" flex flex-row pt-0 pb-[1px] pr-[9px] pl-0 box-border items-start justify-start">
                     <div className=" leading-[18.19px] font-semibold">
                       Preventative Equipment
                     </div>
                   </div>
-                  <div className="w-[171.46px] flex flex-col items-start justify-start text-xs text-dimgray-100">
-                    <div className="w-[171.46px] flex flex-row pt-0 pb-[3px] pr-[67px] pl-0 box-border items-start justify-start gap-[8px]">
+                  <div className=" flex flex-col items-start justify-start text-xs">
+                    <div className=" flex flex-row pt-0 pb-[3px] pr-[67px] pl-0 box-border items-start justify-start gap-[8px]">
                       <div className="flex flex-row pt-[1px] px-0 pb-[4px] items-start justify-center">
                         <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1px] pb-[1px] pr-[1px] pl-[1px] box-border items-start justify-start">
                           <img
@@ -251,7 +251,7 @@ const Overview = () => {
                         <div className=" leading-[16px]">Hand sanitizer</div>
                       </div>
                     </div>
-                    <div className="w-[171.46px] flex flex-row pt-0 pb-[3px] pr-[60px] pl-0 box-border items-start justify-start gap-[8px] mt-[-0.2px]">
+                    <div className=" flex flex-row pt-0 pb-[3px] pr-[60px] pl-0 box-border items-start justify-start gap-[8px] mt-[-0.2px]">
                       <div className="flex flex-row pt-[1px] px-0 pb-[4px] items-start justify-center">
                         <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1px] pb-[1px] pr-[1px] pl-[1px] box-border items-start justify-start">
                           <img
@@ -280,13 +280,13 @@ const Overview = () => {
                   </div>
                 </div>
                 <div className="flex-1 overflow-hidden flex flex-col pt-[1.7999999523162842px] px-0 pb-[9.239997863769531px] items-start justify-start gap-[6.8px]">
-                  <div className="w-[171.46px] flex flex-row pt-0 pb-[0.1900005340576172px] pr-[40.46000671386719px] pl-0 box-border items-start justify-start">
+                  <div className=" flex flex-row pt-0 pb-[0.1900005340576172px] pr-[40.46000671386719px] pl-0 box-border items-start justify-start">
                     <div className=" leading-[18.19px] font-semibold">
                       Health and Medical
                     </div>
                   </div>
-                  <div className="w-[171.46px] flex flex-col items-start justify-start text-xs text-dimgray-100">
-                    <div className="w-[171.46px] flex flex-row pt-0 pb-[3.9999992847442627px] pr-[87.55000305175781px] pl-0 box-border items-start justify-start gap-[8px]">
+                  <div className=" flex flex-col items-start justify-start text-xs">
+                    <div className=" flex flex-row pt-0 pb-[3.9999992847442627px] pr-[87.55000305175781px] pl-0 box-border items-start justify-start gap-[8px]">
                       <div className="flex flex-row pt-[1.590000033378601px] px-0 pb-[4.969999313354492px] items-start justify-center">
                         <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1.310213565826416px] pb-[1.3727126121520996px] pr-[0.20721325278282166px] pl-[0.20721355080604553px] box-border items-start justify-start">
                           <img
@@ -300,7 +300,7 @@ const Overview = () => {
                         <div className=" leading-[16px]">First aid kit</div>
                       </div>
                     </div>
-                    <div className="w-[171.46px] flex flex-row pt-0 pb-[3.9999992847442627px] pr-[34.46000671386719px] pl-0 box-border items-start justify-start gap-[8px] mt-[-0.2px]">
+                    <div className=" flex flex-row pt-0 pb-[3.9999992847442627px] pr-[34.46000671386719px] pl-0 box-border items-start justify-start gap-[8px] mt-[-0.2px]">
                       <div className="flex flex-row pt-[1.600000023841858px] px-0 pb-[4.9599995613098145px] items-start justify-center">
                         <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1.310213565826416px] pb-[1.3727126121520996px] pr-[0.20721325278282166px] pl-[0.20721355080604553px] box-border items-start justify-start">
                           <img
@@ -325,11 +325,11 @@ const Overview = () => {
 
         
         {/* facilities */}
-        <div className=" w-full top-[607.65px] right-[0px] left-[0px] rounded bg-white box-border flex flex-row pt-[15px] pb-[16px] pr-[16px] pl-[16px] items-start justify-start border-[1px] border-solid border-[#DDDFE2]">
-          <div className="w-full flex flex-col items-start justify-start gap-[17.2px]">
+        <div className="w-full lg:w-1/2 top-[607.65px] right-[0px] left-[0px] rounded bg-white box-border flex flex-row pt-[15px] pb-[16px] pr-[16px] pl-[16px] items-start justify-start border-[1px] border-solid border-[#DDDFE2]">
+          <div className=" flex flex-col items-start justify-start gap-[17.2px]">
             <div className=" leading-[24px] font-medium">Facilities</div>
-            <div className=" flex flex-wrap w-full h-[60px] text-xs">
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_30px)] right-[556.8px] left-[0px] flex flex-row pt-0 pb-1 pr-[64px] pl-0 box-border items-center justify-start gap-[8px]">
+            <div className=" flex flex-wrap   text-xs">
+              <div className=" top-[calc(50%_-_30px)] right-[556.8px] left-[0px] flex flex-row pt-0 pb-1 pr-[64px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3px] pb-[3px] pr-[1px] pl-[1px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -343,7 +343,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_30px)] right-[371.2px] left-[185.6px] flex flex-row pt-0 pb-1 pr-[79px] pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_30px)] right-[371.2px] left-[185.6px] flex flex-row pt-0 pb-1 pr-[79px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3px] pb-[3px] pr-[1px] pl-[1px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -357,7 +357,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_30px)] right-[185.6px] left-[371.2px] flex flex-row pt-0 pb-1 pr-[70px] pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_30px)] right-[185.6px] left-[371.2px] flex flex-row pt-0 pb-1 pr-[70px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3px] pb-[3px] pr-[1px] pl-[1px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -371,7 +371,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_30px)] right-[0px] left-[556.8px] flex flex-row pt-0 pb-1 pr-[25px] pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_30px)] right-[0px] left-[556.8px] flex flex-row pt-0 pb-1 pr-[25px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3px] pb-[3px] pr-[1px] pl-[1px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -385,7 +385,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_0px)] right-[556.8px] left-[0px] flex flex-row pt-0 pb-1 pr-[75.35000610351562px] pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_0px)] right-[556.8px] left-[0px] flex flex-row pt-0 pb-1 pr-[75.35000610351562px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3.6264445781707764px] pb-[3.680670976638794px] pr-[1.0789438486099243px] pl-[1.1030057668685913px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -399,7 +399,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_6.2px)] right-[371.2px] left-[185.6px] flex flex-row pt-0 pb-[3.9999992847442627px] pr-2 pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_6.2px)] right-[371.2px] left-[185.6px] flex flex-row pt-0 pb-[3.9999992847442627px] pr-2 pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3.6264445781707764px] pb-[3.680670976638794px] pr-[1.0789438486099243px] pl-[1.1030057668685913px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -414,7 +414,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_0px)] right-[185.6px] left-[371.2px] flex flex-row pt-0 pb-1 pr-[36.600006103515625px] pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_0px)] right-[185.6px] left-[371.2px] flex flex-row pt-0 pb-1 pr-[36.600006103515625px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3.6264445781707764px] pb-[3.680670976638794px] pr-[1.0789438486099243px] pl-[1.1030057668685913px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"
@@ -428,7 +428,7 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className=" w-[calc(100%_-_556.8px)] top-[calc(50%_-_0px)] right-[0px] left-[556.8px] flex flex-row pt-0 pb-1 pr-[23.910003662109375px] pl-0 box-border items-center justify-start gap-[8px]">
+              <div className=" top-[calc(50%_-_0px)] right-[0px] left-[556.8px] flex flex-row pt-0 pb-1 pr-[23.910003662109375px] pl-0 box-border items-center justify-start gap-[8px]">
                 <div className="w-5 overflow-hidden shrink-0 flex flex-row pt-[3.6264445781707764px] pb-[3.680670976638794px] pr-[1.0789438486099243px] pl-[1.1030057668685913px] box-border items-start justify-start">
                   <img
                     className=" w-[17.82px] h-[12.69px]"

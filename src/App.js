@@ -16,11 +16,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<MoreDetails/>} />
+          <Route index element={<Home/>} />
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>} />
           <Route path="/list" element={<ListProperty/>}/>
           <Route path="/facility_type/:data" element={<Search/>} />
+          <Route path="/moredetails" element={<MoreDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>
