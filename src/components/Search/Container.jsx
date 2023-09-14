@@ -12,6 +12,7 @@ import image_10 from "./assets/image_10.jpg"
 import image_11 from "./assets/image_11.jpg"
 import { AiFillStar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 const data = [
   {title:"TF Hostel ", town:"Legon-UG", regional_capital:"Accra", price:"5000", image:image_7 },
   {title:"Number One Oxford Street Hotel & Suites", town:"Osu", regional_capital:"Accra", price:"240", image:image_1 },
@@ -26,7 +27,10 @@ const data = [
   {title:"Evandy Hostel", town:"Legon-UG", regional_capital:"Accra", price:"4000", image:image_11 },
 ]
 const Container = ({facility_type}) => {
-  console.log(facility_type)
+  const navigate = useNavigate()
+  const moredetails = () =>{
+    navigate("/moredetails")
+  }
   return (
     <div className=" relative w-full justify-center items-center">
       <div className=" mt-0 pt-6 w-full min-w-0 xl:w-auto">
@@ -35,14 +39,8 @@ const Container = ({facility_type}) => {
             {/* 1 */}
             {data.map((d)=>{
               return (
-                <li className=" mx-1 sm:mx-2 md:mx-3 lg::mx-4 facility sm:w-[400px] md:w-[398px] p-0 cursor-pointer my-[15px]">
+                <li className=" mx-1 sm:mx-2 md:mx-3 lg::mx-4 facility sm:w-[400px] md:w-[398px] p-0 my-[15px]">
               <div className=" list_container border-[#dddfe2] border-[1px] border-solid rounded-[8px] min-h-[220px]">
-                <a
-                  href="http://"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#5392f9] cursor-pointer bg-transparent no-underline"
-                >
                   <div className=" border-[#dddfe2] w-full flex flex-wrap flex-col">
                     {/* image */}
                     <div className=" box-border m-0 block  flex-grow-0 ">
@@ -81,7 +79,7 @@ const Container = ({facility_type}) => {
                             alt=""
                             className=" h-full w-full max-h-[40px]"
                           />
-                          <div className=" h-full w-full left-0 top-0 absolute">
+                          <div onClick={moredetails} className=" cursor-pointer h-full w-full left-0 top-0 absolute">
                             <div className=" bg-[rgba(0,0,0,.7)] h-[100%] w-[100%] table text-center">
                               <div className=" text-[#fff] table-cell text-[12px] leading-[1.1] align-middle">
                                 See all
@@ -111,7 +109,7 @@ const Container = ({facility_type}) => {
                                 <AiFillStar className=" overflow-hidden fill-[rgb(223,85,5)] max-h-[14px] min-h-[14px] max-w-[14px] min-w-[14px] w-[14px]" />
                               </div>
                             </div>
-                            <span className=" inline-flex items-center no-underline text-[rgb(49,112,231)] fill-[rgb(49,112,231)] font-normal text-[12px] leading-[calc(14.98px)] my-[calc(-0.98px)]">
+                            <span onClick={moredetails} className=" cursor-pointer inline-flex items-center no-underline text-[rgb(49,112,231)] fill-[rgb(49,112,231)] font-normal text-[12px] leading-[calc(14.98px)] my-[calc(-0.98px)]">
                               <MdLocationOn className="text-[rgb(49,112,231)] fill-[rgb(49,112,231)] mr-1 max-h-[14px] min-h-[14px] max-w-[14px] min-w-[14px] w-[14px]" />
                               {d.town}, {d.regional_capital} - View on map
                             </span>
@@ -156,7 +154,6 @@ const Container = ({facility_type}) => {
                       </div>
                     </div>
                   </div>
-                </a>
               </div>
             </li>
               )

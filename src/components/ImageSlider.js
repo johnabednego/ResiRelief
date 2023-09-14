@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom';
 
 const ImageSlider = ({ slides, tittle, value }) => {
+  const navigate = useNavigate()
+
+  const toFacility = () => {
+    if(tittle=="Hostels"){
+    navigate("/facility_type/hostels")
+    }
+    else if(tittle=="Apartments"){
+      navigate("/facility_type/apartments")
+    }
+    else if(tittle=="Guest Houses"){
+      navigate("/facility_type/guest_houses")
+    }
+    else if(tittle=="Hotels"){
+    navigate("/facility_type/hotels")
+    }
+  }
+
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
@@ -29,7 +47,7 @@ const ImageSlider = ({ slides, tittle, value }) => {
               key={index}
             >
               {index === current && (
-                <img src={slide.image} alt='travel' className=' h-[230px] w-[230px] sm:h-[280px] sm:w-[280px] rounded-[10px]' />
+                <img onClick={toFacility} src={slide.image} alt='travel' className=' h-[230px] w-[230px] sm:h-[280px] sm:w-[280px] rounded-[10px]' />
               )}
             </div>
           );

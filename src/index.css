@@ -271,7 +271,7 @@ ol, ul {
   top: 0;
   position: fixed;
   transition: background-color .4s ease-in-out;
-  z-index: 1002;
+  z-index: 49;
   width: 100%;
 }
 
@@ -400,6 +400,7 @@ ol, ul {
     height: fit-content;
     flex-basis: content;
   }
+  
 }
 @media(max-width: 467px){
   .sm_info{
@@ -432,6 +433,9 @@ ol, ul {
     left: -3px;
     z-index: 100;
 }
+.more_details_search{
+  z-index: 10 !important;
+}
 }
 
 @media (min-width:640px){
@@ -439,6 +443,17 @@ ol, ul {
     display: none;
   }
 }
+@media (max-width: 984px){
+  .detailsBody{
+    margin-top: 258px;
+  }
+}
+@media (max-width: 517px){
+  .detailsBody{
+    margin-top: 200px;
+  }
+}
+
 @media (min-width: 992px){
   .container {
       width: 970px;
@@ -470,4 +485,12 @@ ol, ul {
   .Searchbox_icon {
       font-size: 27px;
   }
+  }
+
+  @media (max-width: 810px){
+    .overview{
+      width: 100%;
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+    }
   }

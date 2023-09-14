@@ -7,6 +7,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import ListProperty from "./pages/ListProperty/ListProperty"
 import Search from "./pages/Search/Search";
+import MoreDetails from "./components/Search/MoreDetails";
 function App() {
   useEffect(() => {
     Aos.init();
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/list" element={<ListProperty/>}/>
           <Route path="/facility_type/:data" element={<Search/>} />
+          <Route path="/moredetails" element={<MoreDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>
