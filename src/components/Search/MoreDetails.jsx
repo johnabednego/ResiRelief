@@ -13,6 +13,11 @@ import date_in from "./assets/date_in.png";
 import date_out from "./assets/date_out.png";
 import people from "./assets/people.png";
 import Overview from "./Overview";
+import { useLocation } from 'react-router-dom';
+import Room from "./Room";
+import Facilities from "./Facilities";
+import Policies from "./Policies";
+import Review from "./Review";
 
 let today = new Date();
 
@@ -52,16 +57,17 @@ const MoreDetails = () => {
   const [showDiv, setShowDiv] = useState(false);
   const [showEntryCalendar, setShowEntryCalendar] = useState(false);
   const [selectedEntryDate, setSelectedEntryDate] = useState(moment());
-
   const [showDepartureCalendar, setShowDepartureCalendar] = useState(false);
   const [selectedDepartureDate, setSelectedDepartureDate] = useState(moment());
-
   const [showInfo, setShowshowInfo] = useState(false);
   let [room, setRoom] = useState(1);
   let [adult, setAdult] = useState(1);
   let [child, setChild] = useState(1);
-
   const [details, setDetails] = useState(0);
+  const location = useLocation();
+  const { state } = location;
+
+  console.log(state)
 
   const toggleEntryCalendar = () => {
     setShowDepartureCalendar(false);
@@ -100,8 +106,7 @@ const MoreDetails = () => {
   const d_rooms = () => setDetails(1);
   const d_facilities = () => setDetails(2);
   const d__reviews = () => setDetails(3);
-  const d_location = () => setDetails(4);
-  const d_policies = () => setDetails(5);
+  const d_policies = () => setDetails(4);
 
   let entryDate = formattedDate;
   let entryDayOfWeek = dayOfWeek;
@@ -139,7 +144,7 @@ const MoreDetails = () => {
   };
 
 
-
+if(state){
   return (
     <div>
       {/* //  {/* Navigation bar */}
@@ -356,7 +361,7 @@ const MoreDetails = () => {
               <img
                 className=" w-[416px] h-72 shrink-0 object-cover z-[0]"
                 alt=""
-                src="/main.png"
+                src={state.image}
               />
               <div className=" float-right -mt-6 relative cursor-pointer text-white my-0 mx-[!important]  right-[8px] bottom-[8px] rounded bg-[rgba(0,0,0,0.5)] shadow-[0px_1px_3px_1px_rgba(0,_0,_0,_0.2)] w-fit overflow-hidden shrink-0 flex flex-row pt-[7px] px-3 pb-[7px] box-border items-start justify-start">
                 <div className=" w-fit flex flex-row items-center justify-center gap-[8px]">
@@ -457,19 +462,9 @@ const MoreDetails = () => {
                 Reviews
               </div>
               <div
-                onClick={() => d_location()}
-                className={
-                  details === 4
-                    ? " text-[#5392F9] mr-4 cursor-not-allowed top-[16.8px] left-[345.59px] leading-[20px]"
-                    : " my-1 rounded border-[1px] border-solid p-1 cursor-pointer mr-4 top-[16.8px] left-[345.59px] leading-[20px]"
-                }
-              >
-                Location
-              </div>
-              <div
                 onClick={() => d_policies()}
                 className={
-                  details === 5
+                  details === 4
                     ? " text-[#5392F9] mr-4 cursor-not-allowed top-[16.8px] left-[434.21px] leading-[20px]"
                     : " my-1 rounded border-[1px] border-solid p-1 cursor-pointer mr-4 top-[16.8px] left-[434.21px] leading-[20px]"
                 }
@@ -484,7 +479,7 @@ const MoreDetails = () => {
                 ₵
               </div>
               <div className=" ml-1 text-[#E12D2D] text-[22px] leading-[22px]">
-                410
+                {state.price}
               </div>
             </div>
             {/* view deal */}
@@ -496,12 +491,11 @@ const MoreDetails = () => {
           </div>
         </div>
         {/*  Details*/}
-        {details === 0 ? <Overview /> : null}
-        {details === 1 ? <h1>Rooms</h1> : null}
-        {details === 2 ? <h1>Facilities</h1> : null}
-        {details === 3 ? <h1>Reviews</h1> : null}
-        {details === 4 ? <h1>Location</h1> : null}
-        {details === 5 ? <h1>Policies</h1> : null}
+        {details === 0 ? <Overview d_facilities={d_facilities} data={state} /> : null}
+        {details === 1 ? <h1><Room data={state}/></h1> : null}
+        {details === 2 ? <h1><Facilities/></h1> : null}
+        {details === 3 ? <h1><Review data={state}/></h1> : null}
+        {details === 4 ? <h1><Policies/></h1> : null}
         <Footer />
       </div>
 
@@ -509,6 +503,16 @@ const MoreDetails = () => {
       {signUpModal ? <SignUpModal /> : null}
     </div>
   );
+}
+else{
+  return(
+    <div className=" w-full h-screen flex align-middle justify-center items-center text-center text-secondary">
+      <h1 className=" font-extrabold text-[#FF0000]">
+      ILLIGAL ACCESS 
+      </h1>
+    </div>
+  )
+}
 };
 
 export default MoreDetails;

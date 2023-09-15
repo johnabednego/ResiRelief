@@ -6,16 +6,16 @@ const ImageSlider = ({ slides, tittle, value }) => {
   const navigate = useNavigate()
 
   const toFacility = () => {
-    if(tittle=="Hostels"){
+    if(tittle==="Hostels"){
     navigate("/facility_type/hostels")
     }
-    else if(tittle=="Apartments"){
+    else if(tittle==="Apartments"){
       navigate("/facility_type/apartments")
     }
-    else if(tittle=="Guest Houses"){
+    else if(tittle==="Guest Houses"){
       navigate("/facility_type/guest_houses")
     }
-    else if(tittle=="Hotels"){
+    else if(tittle==="Hotels"){
     navigate("/facility_type/hotels")
     }
   }

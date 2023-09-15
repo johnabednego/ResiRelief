@@ -14,22 +14,22 @@ import { AiFillStar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 const data = [
-  {title:"TF Hostel ", town:"Legon-UG", regional_capital:"Accra", price:"5000", image:image_7 },
-  {title:"Number One Oxford Street Hotel & Suites", town:"Osu", regional_capital:"Accra", price:"240", image:image_1 },
-  {title:"University of Ghana Guest House", town:"Legon", regional_capital:"Accra", price:"200/Night", image:image_2 },
-  {title:"Knox Apartments", town:"Weija", regional_capital:"Accra", price:"240", image:image_3 },
-  {title:"Pent Hostel ", town:"Legon-UG", regional_capital:"Accra", price:"3000", image:image_6 },
-  {title:"Park Apartments", town:"Cantonments", regional_capital:"Accra", price:"500", image:image_4 },
-  {title:"Turtle Beach Guest House", town:"Tema", regional_capital:"Accra", price:"300/Night", image:image_8 },
-  {title:"Devtraco Plus-Acasia Apartments", town:"Cantonment", regional_capital:"Accra", price:"600", image:image_5 },
-  {title:"A Boutique-style Hotel", town:"Obuasi", regional_capital:"Kumasi", price:"250/Night", image:image_9 },
-  {title:"Takoradi Guest House", town:"Takoradi", regional_capital:"Sekondi-Takoradi", price:"290", image:image_10 },
-  {title:"Evandy Hostel", town:"Legon-UG", regional_capital:"Accra", price:"4000", image:image_11 },
+  {title:"TF Hostel ", description:"Affordable hostel rooms for backpackers", occupancies:[1,2,3,4,6,7,8] ,property_type:"Hostel", town:"Legon-UG", regional_capital:"Accra", price:"5000", image:image_7 },
+  {title:"Number One Oxford Street Hotel & Suites", description:"Luxury hotel rooms with a view", occupancies:[1,2,3,4] ,property_type:"Hotel", town:"Osu", regional_capital:"Accra", price:"240", image:image_1 },
+  {title:"University of Ghana Guest House", description:"Cozy guest rooms with all amenities", occupancies:[1,2,3,4,6,7,8] ,property_type:"Guest House", town:"Legon", regional_capital:"Accra", price:"200/Night", image:image_2 },
+  {title:"Knox Apartment", description:"Spacious apartments for your comfort", occupancies:[4] ,property_type:"Apartment", town:"Weija", regional_capital:"Accra", price:"240", image:image_3 },
+  {title:"Pent Hostel ", description:"Affordable hostel rooms for backpackers", occupancies:[1,2,3,4,6,7] ,property_type:"Hostel", town:"Legon-UG", regional_capital:"Accra", price:"3000", image:image_6 },
+  {title:"Park Apartment", description:"Spacious apartments for your comfort", occupancies:[1,2,3,4,6,7,8] ,property_type:"Apartment", town:"Cantonments", regional_capital:"Accra", price:"500", image:image_4 },
+  {title:"Turtle Beach Guest House", description:"Cozy guest rooms with all amenities", occupancies:[1,2,3,4,6] ,property_type:"Guest House", town:"Tema", regional_capital:"Accra", price:"300/Night", image:image_8 },
+  {title:"Devtraco Plus-Acasia Apartment", description:"Spacious apartments for your comfort", occupancies:[3] ,property_type:"Apartment", town:"Cantonment", regional_capital:"Accra", price:"600", image:image_5 },
+  {title:"A Boutique-style Hotel", description:"Luxury hotel rooms with a view", occupancies:[1,2] ,property_type:"Hotel", town:"Obuasi", regional_capital:"Kumasi", price:"250/Night", image:image_9 },
+  {title:"Takoradi Guest House", description:"Cozy guest rooms with all amenities", occupancies:[1,2] ,property_type:"Guest House", town:"Takoradi", regional_capital:"Sekondi-Takoradi", price:"290", image:image_10 },
+  {title:"Evandy Hostel", description:"Affordable hostel rooms for backpackers", occupancies:[1,2,3,4,6] ,property_type:"Hotels", town:"Legon-UG", regional_capital:"Accra", price:"4000", image:image_11 },
 ]
 const Container = ({facility_type}) => {
   const navigate = useNavigate()
-  const moredetails = () =>{
-    navigate("/moredetails")
+  const moredetails = (data) =>{
+    navigate("/moredetails",{ state: data } )
   }
   return (
     <div className=" relative w-full justify-center items-center">
@@ -79,7 +79,7 @@ const Container = ({facility_type}) => {
                             alt=""
                             className=" h-full w-full max-h-[40px]"
                           />
-                          <div onClick={moredetails} className=" cursor-pointer h-full w-full left-0 top-0 absolute">
+                          <div onClick={()=>moredetails(d)} className=" cursor-pointer h-full w-full left-0 top-0 absolute">
                             <div className=" bg-[rgba(0,0,0,.7)] h-[100%] w-[100%] table text-center">
                               <div className=" text-[#fff] table-cell text-[12px] leading-[1.1] align-middle">
                                 See all
@@ -109,9 +109,9 @@ const Container = ({facility_type}) => {
                                 <AiFillStar className=" overflow-hidden fill-[rgb(223,85,5)] max-h-[14px] min-h-[14px] max-w-[14px] min-w-[14px] w-[14px]" />
                               </div>
                             </div>
-                            <span onClick={moredetails} className=" cursor-pointer inline-flex items-center no-underline text-[rgb(49,112,231)] fill-[rgb(49,112,231)] font-normal text-[12px] leading-[calc(14.98px)] my-[calc(-0.98px)]">
+                            <span onClick={()=>moredetails(d)} className=" cursor-pointer inline-flex items-center no-underline text-[rgb(49,112,231)] fill-[rgb(49,112,231)] font-normal text-[12px] leading-[calc(14.98px)] my-[calc(-0.98px)]">
                               <MdLocationOn className="text-[rgb(49,112,231)] fill-[rgb(49,112,231)] mr-1 max-h-[14px] min-h-[14px] max-w-[14px] min-w-[14px] w-[14px]" />
-                              {d.town}, {d.regional_capital} - View on map
+                              {d.town}, {d.regional_capital} - <span className=" text-lg font-semibold">View</span>
                             </span>
                           </div>
                         </header>
