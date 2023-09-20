@@ -10,6 +10,7 @@ import Room from "./Room";
 import Facilities from "./Facilities";
 import Policies from "./Policies";
 import Review from "./Review";
+import PicturesModal from "./PicturesModal";
 
 
 
@@ -17,6 +18,7 @@ const MoreDetails = () => {
   const signInModal = useSelector((state) => state.signInModal.value);
   const signUpModal = useSelector((state) => state.signUpModal.value);
 
+  const [showPictures, setShowPictures] = useState(false)
   const [details, setDetails] = useState(0);
   const location = useLocation();
   const { state } = location;
@@ -29,7 +31,11 @@ const MoreDetails = () => {
   const d__reviews = () => setDetails(3);
   const d_policies = () => setDetails(4);
 
-
+  const images = [
+    state.image,"/1_img.png","/2_img.png",
+    "/3_img.png","/4_img.png","/5_img.png",
+    "/6_img.png",
+  ]
 
 if(state){
   return (
@@ -50,7 +56,8 @@ if(state){
                 alt=""
                 src={state.image}
               />
-              <div className=" float-right -mt-6 relative cursor-pointer text-white my-0 mx-[!important]  right-[8px] bottom-[8px] rounded bg-[rgba(0,0,0,0.5)] shadow-[0px_1px_3px_1px_rgba(0,_0,_0,_0.2)] w-fit overflow-hidden shrink-0 flex flex-row pt-[7px] px-3 pb-[7px] box-border items-start justify-start">
+              {/**See all photoes */}
+              <div onClick={()=>setShowPictures(true)} className=" float-right -mt-6 relative cursor-pointer text-white my-0 mx-[!important]  right-[8px] bottom-[8px] rounded bg-[rgba(0,0,0,0.5)] shadow-[0px_1px_3px_1px_rgba(0,_0,_0,_0.2)] w-fit overflow-hidden shrink-0 flex flex-row pt-[7px] px-3 pb-[7px] box-border items-start justify-start">
                 <div className=" w-fit flex flex-row items-center justify-center gap-[8px]">
                   <div className="w-3 overflow-hidden shrink-0 flex flex-row pt-[1.5px] px-px pb-0.5 box-border items-start justify-start">
                     <img
@@ -188,6 +195,7 @@ if(state){
 
       {signInModal ? <SignInModal /> : null}
       {signUpModal ? <SignUpModal /> : null}
+      {showPictures? <PicturesModal images={images} setShowPictures={setShowPictures}  />: null}
     </div>
   );
 }
