@@ -28,8 +28,22 @@ const data = [
 ]
 const Container = ({facility_type}) => {
   const navigate = useNavigate()
+  const scroll_control = () =>{
+    const scrollDuration = 500; // Adjust this value to control the scroll speed
+    const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+    const animateScroll = () => {
+      if (window.scrollY !== 0) {
+        window.scrollBy(0, scrollStep);
+        requestAnimationFrame(animateScroll);
+      } 
+    };
+
+    animateScroll();
+  }
   const moredetails = (data) =>{
     navigate("/moredetails",{ state: data } )
+    scroll_control()
   }
   return (
     <div className=" relative w-full justify-center items-center">

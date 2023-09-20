@@ -5,18 +5,35 @@ import { useNavigate } from 'react-router-dom';
 const ImageSlider = ({ slides, tittle, value }) => {
   const navigate = useNavigate()
 
+  const scroll_control = () =>{
+    const scrollDuration = 500; // Adjust this value to control the scroll speed
+    const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+    const animateScroll = () => {
+      if (window.scrollY !== 0) {
+        window.scrollBy(0, scrollStep);
+        requestAnimationFrame(animateScroll);
+      } 
+    };
+
+    animateScroll();
+  }
   const toFacility = () => {
     if(tittle==="Hostels"){
     navigate("/facility_type/hostels")
+    scroll_control()
     }
     else if(tittle==="Apartments"){
       navigate("/facility_type/apartments")
+      scroll_control()
     }
     else if(tittle==="Guest Houses"){
       navigate("/facility_type/guest_houses")
+      scroll_control()
     }
     else if(tittle==="Hotels"){
     navigate("/facility_type/hotels")
+    scroll_control()
     }
   }
 

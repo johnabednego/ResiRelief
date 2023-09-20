@@ -18,14 +18,14 @@ import prampram from './assets/ghana/prampram.jpg'
 
 const Explore = () => {
   const data = [
-    {id:1, image:accra, tittle:"Accra", value:"600"},
-    {id:2, image:kumasi, tittle:"Kumasi", value:"52"},
-    {id:3, image:cape_coast, tittle:"Cape Coast", value:"19"},
-    {id:4, image:east_legon, tittle:"East Legon", value:"18"},
-    {id:5, image:greater_accra, tittle:"Greater Accra", value:"801"},
-    {id:6, image:aburi, tittle:"Aburi", value:"3"},
-    {id:7, image:takoradi, tittle:"Takoradi", value:"20"},
-    {id:7, image:prampram, tittle:"Prampram", value:"9"},
+    {id:1, image:accra, tittle:"Accra", value:"600", facility:"Hostels"},
+    {id:2, image:kumasi, tittle:"Kumasi", value:"52", facility:"Apartments"},
+    {id:3, image:cape_coast, tittle:"Cape Coast", value:"19", facility:"Guest Houses"},
+    {id:4, image:east_legon, tittle:"East Legon", value:"18", facility:"Hotels"},
+    {id:5, image:greater_accra, tittle:"Greater Accra", value:"801", facility:"Hostels"},
+    {id:6, image:aburi, tittle:"Aburi", value:"3", facility:"Apartments"},
+    {id:7, image:takoradi, tittle:"Takoradi", value:"20", facility:"Guest Houses"},
+    {id:7, image:prampram, tittle:"Prampram", value:"9",  facility:"Hotels"},
   ]
 
 
@@ -66,7 +66,7 @@ const Explore = () => {
   
   const renderSlides = () =>
     data.map(feed => (
-      <ExploreFeed image={feed.image} tittle={feed.tittle} value={feed.value} />
+      <ExploreFeed image={feed.image} tittle={feed.tittle} value={feed.value} facility={feed.facility} />
     ));
   
   return (
