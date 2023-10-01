@@ -55,8 +55,8 @@ const ImageSlider = ({ slides, tittle, value }) => {
   return (
     <div className='margin ml-8 sm:ml-12 mt-8 cursor-pointer  transition-all duration-500'>
       <section className='h-[280px] w-[250px] group relative flex justify-center items-center  '>
-        {current === 0 ? <IoIosArrowDropleftCircle className='invisible group-hover:visible  bg-black h-fit w-fit rounded-full -ml-[230px] absolute text-[3rem] text-white z-10 select-none cursor-not-allowed opacity-40 ' /> : <IoIosArrowDropleftCircle className=' invisible group-hover:visible  bg-white h-fit w-fit rounded-full -ml-[230px] absolute text-[3rem] text-gray-500 z-10 cursor-pointer select-none ' onClick={prevSlide} />}
-        {current === length - 1 ? <IoIosArrowDroprightCircle className='invisible group-hover:visible  bg-black h-fit w-fit rounded-full ml-[230px] absolute text-[3rem] text-white z-10 select-none cursor-not-allowed opacity-40 ' /> : <IoIosArrowDroprightCircle className=' invisible group-hover:visible  bg-white h-fit w-fit rounded-full ml-[230px] absolute text-[3rem] text-gray-500 z-10 cursor-pointer select-none' onClick={nextSlide} />}
+        {current === 0 ? <IoIosArrowDropleftCircle className=' invisible group-hover:visible  bg-black w-[48px] h-[48px] rounded-full -ml-[230px] absolute text-[3rem] text-white z-10 select-none cursor-not-allowed opacity-40 ' /> : <IoIosArrowDropleftCircle className=' invisible group-hover:visible  bg-white w-[48px] h-[48px] rounded-full -ml-[230px] absolute text-[3rem] text-gray-500 z-10 cursor-pointer select-none ' onClick={prevSlide} />}
+        {current === length - 1 ? <IoIosArrowDroprightCircle className='invisible group-hover:visible  bg-black w-[48px] h-[48px] rounded-full ml-[230px] absolute text-[3rem] text-white z-10 select-none cursor-not-allowed opacity-40 ' /> : <IoIosArrowDroprightCircle className=' invisible group-hover:visible  bg-white w-[48px] h-[48px] rounded-full ml-[230px] absolute text-[3rem] text-gray-500 z-10 cursor-pointer select-none' onClick={nextSlide} />}
         {slides.map((slide, index) => {
           return (
             <div
