@@ -24,7 +24,8 @@ module.exports = {
         'location': "url('/src/components/Home/assets/location.png')",
         'house': "url('/src/components/Home/assets/house.png')",
         'hotel':"url('/src/components/About/assets/ab1.jpg')",
-        'contact':"url('/src/components/Contact/assets/contact.jpg')"
+        'contact':"url('/src/components/Contact/assets/contact.jpg')",
+        'hostelList':"url('/src/pages/ListProperty/assets/hostel.jpg')"
       },
       boxShadow: {
         'input': '10px 10px 40px 4px rgba(0, 0, 0, 0.25)',

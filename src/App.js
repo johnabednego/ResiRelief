@@ -10,6 +10,7 @@ import Search from "./pages/Search/Search";
 import MoreDetails from "./pages/MoreDetails/MoreDetails";
 import ErrorPage from "./pages/Error/ErrorPage";
 import Form from "./pages/Form/Form";
+import HostelList from "./pages/ListProperty/HostelList";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/facility_type/:data" element={<Search/>} />
           <Route path="/moredetails" element={<MoreDetails/>} />
           <Route path="/booking" element={<Form/>} />
+          <Route path="/hostellisting" element={<HostelList/>} />
           <Route path="/*" element={<ErrorPage/>} />
         </Routes>
       </BrowserRouter>

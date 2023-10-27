@@ -1,9 +1,14 @@
 import React from "react";
 import {HostFalse} from '../../../features/page/ListProperty/hostelModal'
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ListHostel = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const hostelList = () =>{
+    navigate("/hostellisting")
+  }
   return (
     <div className=" justify-center items-center flex flex-col">
       <button onClick={()=>dispatch(HostFalse())} className="closeButton -mt-5 rounded-[4px] select-none box-border flex justify-center items-center text-center p-1 ml-auto  border-0  float-right text-3xl leading-none font-semibold outline-none focus:outline-none">
@@ -30,7 +35,7 @@ const ListHostel = () => {
               payments and offering a stay limited by a time agreed upon.
             </p>
           </div>
-          <button className=" shadow-md listButton  w-fit mx-0 mt-2 text-white bg-[#3171d9] border-[#3171d9] rounded-[10px] min-h-[42px] inline-block font-semibold text-center touch-manipulation cursor-pointer border-[1px] border-solid border-transparent whitespace-nowrap text-[14px] select-none px-[15px] py-[10px]">
+          <button onClick={hostelList} className=" shadow-md listButton  w-fit mx-0 mt-2 text-white bg-[#3171d9] border-[#3171d9] rounded-[10px] min-h-[42px] inline-block font-semibold text-center touch-manipulation cursor-pointer border-[1px] border-solid border-transparent whitespace-nowrap text-[14px] select-none px-[15px] py-[10px]">
             <span>List Now</span>
           </button>
         </div>
